@@ -1,0 +1,158 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-05",
+  "author": "TCM Community",
+  "description": "Terminal Context Manager - Profile Templates & Environment Variables Dictionary",
+  "repository": "https://github.com/user/tcm-templates",
+  "templates": [
+    {
+      "id": "git-dev",
+      "name": "Git Development",
+      "description": "Git version control configuration for development workflow",
+      "category": "Development",
+      "icon": "git-branch",
+      "tags": ["git", "vcs", "development"],
+      "variables": [
+        { "key": "GIT_AUTHOR_NAME", "type": "literal", "description": "Your name for git commits" },
+        { "key": "GIT_AUTHOR_EMAIL", "type": "literal", "description": "Your email for git commits" },
+        { "key": "GIT_COMMITTER_NAME", "type": "literal", "description": "Committer name (usually same as author)" },
+        { "key": "GIT_COMMITTER_EMAIL", "type": "literal", "description": "Committer email" },
+        { "key": "GIT_EDITOR", "value": "code --wait", "type": "literal", "description": "Editor for git commit messages" },
+        { "key": "GIT_SSH_COMMAND", "value": "ssh -o StrictHostKeyChecking=no", "type": "literal", "description": "SSH command for git" }
+      ]
+    },
+    {
+      "id": "ai-dev",
+      "name": "AI Development",
+      "description": "API keys and configuration for AI/ML services",
+      "category": "AI",
+      "icon": "hubot",
+      "tags": ["ai", "openai", "anthropic", "llm"],
+      "variables": [
+        { "key": "OPENAI_API_KEY", "type": "secretRef", "description": "OpenAI API key" },
+        { "key": "OPENAI_ORG_ID", "type": "literal", "description": "OpenAI organization ID" },
+        { "key": "ANTHROPIC_API_KEY", "type": "secretRef", "description": "Anthropic Claude API key" },
+        { "key": "AZURE_OPENAI_ENDPOINT", "type": "literal", "description": "Azure OpenAI endpoint URL" },
+        { "key": "AZURE_OPENAI_API_KEY", "type": "secretRef", "description": "Azure OpenAI API key" },
+        { "key": "GEMINI_API_KEY", "type": "secretRef", "description": "Google Gemini API key" },
+        { "key": "HUGGINGFACE_TOKEN", "type": "secretRef", "description": "HuggingFace API token" }
+      ]
+    },
+    {
+      "id": "aws-cloud",
+      "name": "AWS Cloud",
+      "description": "Amazon Web Services credentials and configuration",
+      "category": "Cloud",
+      "icon": "cloud",
+      "tags": ["aws", "cloud", "amazon"],
+      "variables": [
+        { "key": "AWS_ACCESS_KEY_ID", "type": "secretRef", "description": "AWS access key ID" },
+        { "key": "AWS_SECRET_ACCESS_KEY", "type": "secretRef", "description": "AWS secret access key" },
+        { "key": "AWS_DEFAULT_REGION", "value": "us-east-1", "type": "literal", "description": "Default AWS region" },
+        { "key": "AWS_PROFILE", "value": "default", "type": "literal", "description": "AWS CLI profile name" },
+        { "key": "AWS_SESSION_TOKEN", "type": "secretRef", "description": "AWS session token (for temporary credentials)" }
+      ]
+    },
+    {
+      "id": "nodejs-dev",
+      "name": "Node.js Development",
+      "description": "Node.js and NPM configuration for JavaScript development",
+      "category": "Development",
+      "icon": "symbol-method",
+      "tags": ["nodejs", "npm", "javascript", "typescript"],
+      "variables": [
+        { "key": "NODE_ENV", "value": "development", "type": "literal", "description": "Node environment (development/production/test)" },
+        { "key": "NODE_OPTIONS", "value": "--max-old-space-size=4096", "type": "literal", "description": "Node.js runtime options" },
+        { "key": "NPM_TOKEN", "type": "secretRef", "description": "NPM authentication token" },
+        { "key": "NPM_CONFIG_REGISTRY", "value": "https://registry.npmjs.org/", "type": "literal", "description": "NPM registry URL" },
+        { "key": "DEBUG", "value": "*", "type": "literal", "description": "Debug namespace pattern" }
+      ]
+    },
+    {
+      "id": "python-dev",
+      "name": "Python Development",
+      "description": "Python environment and package management configuration",
+      "category": "Development",
+      "icon": "symbol-namespace",
+      "tags": ["python", "pip", "conda"],
+      "variables": [
+        { "key": "PYTHONPATH", "type": "literal", "description": "Python module search path" },
+        { "key": "PYTHONDONTWRITEBYTECODE", "value": "1", "type": "literal", "description": "Prevent .pyc file creation" },
+        { "key": "PYTHONUNBUFFERED", "value": "1", "type": "literal", "description": "Force unbuffered stdout/stderr" },
+        { "key": "PIP_INDEX_URL", "value": "https://pypi.org/simple", "type": "literal", "description": "PyPI index URL" },
+        { "key": "VIRTUAL_ENV", "type": "literal", "description": "Virtual environment path" }
+      ]
+    },
+    {
+      "id": "docker-dev",
+      "name": "Docker & Container",
+      "description": "Docker and containerization configuration",
+      "category": "DevOps",
+      "icon": "package",
+      "tags": ["docker", "container", "devops"],
+      "variables": [
+        { "key": "DOCKER_HOST", "type": "literal", "description": "Docker daemon socket/host" },
+        { "key": "DOCKER_BUILDKIT", "value": "1", "type": "literal", "description": "Enable Docker BuildKit" },
+        { "key": "COMPOSE_DOCKER_CLI_BUILD", "value": "1", "type": "literal", "description": "Use Docker CLI in Compose" },
+        { "key": "DOCKER_USERNAME", "type": "literal", "description": "Docker Hub username" },
+        { "key": "DOCKER_PASSWORD", "type": "secretRef", "description": "Docker Hub password/token" }
+      ]
+    },
+    {
+      "id": "proxy-network",
+      "name": "Network Proxy",
+      "description": "HTTP/HTTPS proxy configuration for network access",
+      "category": "Network",
+      "icon": "globe",
+      "tags": ["proxy", "network", "http"],
+      "variables": [
+        { "key": "HTTP_PROXY", "type": "literal", "description": "HTTP proxy URL (e.g., http://proxy:8080)" },
+        { "key": "HTTPS_PROXY", "type": "literal", "description": "HTTPS proxy URL" },
+        { "key": "NO_PROXY", "value": "localhost,127.0.0.1,.local", "type": "literal", "description": "Hosts to bypass proxy" },
+        { "key": "ALL_PROXY", "type": "literal", "description": "Universal proxy (socks5://...)" }
+      ]
+    },
+    {
+      "id": "database",
+      "name": "Database Connection",
+      "description": "Database connection and authentication configuration",
+      "category": "Database",
+      "icon": "database",
+      "tags": ["database", "sql", "postgresql", "mysql"],
+      "variables": [
+        { "key": "DATABASE_URL", "type": "secretRef", "description": "Full database connection string" },
+        { "key": "DB_HOST", "value": "localhost", "type": "literal", "description": "Database server hostname" },
+        { "key": "DB_PORT", "value": "5432", "type": "literal", "description": "Database server port" },
+        { "key": "DB_NAME", "type": "literal", "description": "Database name" },
+        { "key": "DB_USER", "type": "literal", "description": "Database username" },
+        { "key": "DB_PASSWORD", "type": "secretRef", "description": "Database password" }
+      ]
+    },
+    {
+      "id": "kubernetes",
+      "name": "Kubernetes",
+      "description": "Kubernetes cluster configuration",
+      "category": "DevOps",
+      "icon": "server",
+      "tags": ["kubernetes", "k8s", "kubectl"],
+      "variables": [
+        { "key": "KUBECONFIG", "value": "~/.kube/config", "type": "literal", "description": "Kubernetes config file path" },
+        { "key": "KUBE_CONTEXT", "type": "literal", "description": "Kubernetes context name" },
+        { "key": "KUBE_NAMESPACE", "value": "default", "type": "literal", "description": "Default namespace" }
+      ]
+    },
+    {
+      "id": "github-actions",
+      "name": "GitHub Actions",
+      "description": "GitHub and GitHub Actions configuration",
+      "category": "CI/CD",
+      "icon": "github",
+      "tags": ["github", "actions", "ci"],
+      "variables": [
+        { "key": "GITHUB_TOKEN", "type": "secretRef", "description": "GitHub personal access token" },
+        { "key": "GITHUB_REPOSITORY", "type": "literal", "description": "Repository (owner/repo)" },
+        { "key": "GITHUB_ACTOR", "type": "literal", "description": "GitHub username" }
+      ]
+    }
+  ]
+}
