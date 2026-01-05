@@ -11,14 +11,44 @@
       "description": "Git version control configuration for development workflow",
       "category": "Development",
       "icon": "git-branch",
-      "tags": ["git", "vcs", "development"],
+      "tags": [
+        "git",
+        "vcs",
+        "development"
+      ],
       "variables": [
-        { "key": "GIT_AUTHOR_NAME", "type": "literal", "description": "Your name for git commits" },
-        { "key": "GIT_AUTHOR_EMAIL", "type": "literal", "description": "Your email for git commits" },
-        { "key": "GIT_COMMITTER_NAME", "type": "literal", "description": "Committer name (usually same as author)" },
-        { "key": "GIT_COMMITTER_EMAIL", "type": "literal", "description": "Committer email" },
-        { "key": "GIT_EDITOR", "value": "code --wait", "type": "literal", "description": "Editor for git commit messages" },
-        { "key": "GIT_SSH_COMMAND", "value": "ssh -o StrictHostKeyChecking=no", "type": "literal", "description": "SSH command for git" }
+        {
+          "key": "GIT_AUTHOR_NAME",
+          "type": "literal",
+          "description": "Your name for git commits"
+        },
+        {
+          "key": "GIT_AUTHOR_EMAIL",
+          "type": "literal",
+          "description": "Your email for git commits"
+        },
+        {
+          "key": "GIT_COMMITTER_NAME",
+          "type": "literal",
+          "description": "Committer name (usually same as author)"
+        },
+        {
+          "key": "GIT_COMMITTER_EMAIL",
+          "type": "literal",
+          "description": "Committer email"
+        },
+        {
+          "key": "GIT_EDITOR",
+          "value": "code --wait",
+          "type": "literal",
+          "description": "Editor for git commit messages"
+        },
+        {
+          "key": "GIT_SSH_COMMAND",
+          "value": "ssh -o StrictHostKeyChecking=no",
+          "type": "literal",
+          "description": "SSH command for git"
+        }
       ]
     },
     {
@@ -27,15 +57,103 @@
       "description": "API keys and configuration for AI/ML services",
       "category": "AI",
       "icon": "hubot",
-      "tags": ["ai", "openai", "anthropic", "llm"],
+      "tags": [
+        "ai",
+        "openai",
+        "anthropic",
+        "llm"
+      ],
       "variables": [
-        { "key": "OPENAI_API_KEY", "type": "secretRef", "description": "OpenAI API key" },
-        { "key": "OPENAI_ORG_ID", "type": "literal", "description": "OpenAI organization ID" },
-        { "key": "ANTHROPIC_API_KEY", "type": "secretRef", "description": "Anthropic Claude API key" },
-        { "key": "AZURE_OPENAI_ENDPOINT", "type": "literal", "description": "Azure OpenAI endpoint URL" },
-        { "key": "AZURE_OPENAI_API_KEY", "type": "secretRef", "description": "Azure OpenAI API key" },
-        { "key": "GEMINI_API_KEY", "type": "secretRef", "description": "Google Gemini API key" },
-        { "key": "HUGGINGFACE_TOKEN", "type": "secretRef", "description": "HuggingFace API token" }
+        {
+          "key": "OPENAI_API_KEY",
+          "type": "secretRef",
+          "description": "OpenAI API key"
+        },
+        {
+          "key": "OPENAI_ORG_ID",
+          "type": "literal",
+          "description": "OpenAI organization ID"
+        },
+        {
+          "key": "ANTHROPIC_API_KEY",
+          "type": "secretRef",
+          "description": "Anthropic Claude API key"
+        },
+        {
+          "key": "AZURE_OPENAI_ENDPOINT",
+          "type": "literal",
+          "description": "Azure OpenAI endpoint URL"
+        },
+        {
+          "key": "AZURE_OPENAI_API_KEY",
+          "type": "secretRef",
+          "description": "Azure OpenAI API key"
+        },
+        {
+          "key": "GEMINI_API_KEY",
+          "type": "secretRef",
+          "description": "Google Gemini API key"
+        },
+        {
+          "key": "HUGGINGFACE_TOKEN",
+          "type": "secretRef",
+          "description": "HuggingFace API token"
+        }
+      ]
+    },
+    {
+      "id": "claudecode-cli",
+      "name": "Claudecode / Anthropic (Claude) CLI",
+      "description": "Environment variables for using claudecode-style CLI with Anthropic or Deepseek Anthropic proxy",
+      "category": "AI",
+      "icon": "terminal",
+      "tags": [
+        "claudecode",
+        "anthropic",
+        "deepseek",
+        "cli"
+      ],
+      "variables": [
+        {
+          "key": "ANTHROPIC_AUTH_TOKEN",
+          "type": "secretRef",
+          "description": "Anthropic API key (used by claudecode / CLI). Do NOT commit the real key."
+        },
+        {
+          "key": "ANTHROPIC_BASE_URL",
+          "value": "https://api.deepseek.com/anthropic",
+          "type": "literal",
+          "description": "Base URL for Anthropic or proxy endpoint (e.g., Deepseek). Adjust to provider."
+        },
+        {
+          "key": "ANTHROPIC_MODEL",
+          "value": "deepseek-chat",
+          "type": "literal",
+          "description": "Default model to use with the CLI (e.g., deepseek-chat, claude-2)"
+        },
+        {
+          "key": "ANTHROPIC_SMALL_FAST_MODEL",
+          "value": "deepseek-small",
+          "type": "literal",
+          "description": "Optional smaller/faster model name"
+        },
+        {
+          "key": "CLAUDECODE_CONFIG_PATH",
+          "value": "~/.config/claudecode/config.yaml",
+          "type": "literal",
+          "description": "Path to local claudecode CLI config (optional)"
+        },
+        {
+          "key": "CLAUDECODE_PROFILE",
+          "type": "literal",
+          "description": "Optional claudecode profile name to select (if CLI supports profiles)"
+        },
+        {
+          "key": "CLAUDECODE_DEFAULT_TIMEOUT_MS",
+          "value": "30000",
+          "type": "literal",
+          "description": "Default request timeout for claudecode CLI (milliseconds)"
+        }
       ]
     },
     {
@@ -44,13 +162,39 @@
       "description": "Amazon Web Services credentials and configuration",
       "category": "Cloud",
       "icon": "cloud",
-      "tags": ["aws", "cloud", "amazon"],
+      "tags": [
+        "aws",
+        "cloud",
+        "amazon"
+      ],
       "variables": [
-        { "key": "AWS_ACCESS_KEY_ID", "type": "secretRef", "description": "AWS access key ID" },
-        { "key": "AWS_SECRET_ACCESS_KEY", "type": "secretRef", "description": "AWS secret access key" },
-        { "key": "AWS_DEFAULT_REGION", "value": "us-east-1", "type": "literal", "description": "Default AWS region" },
-        { "key": "AWS_PROFILE", "value": "default", "type": "literal", "description": "AWS CLI profile name" },
-        { "key": "AWS_SESSION_TOKEN", "type": "secretRef", "description": "AWS session token (for temporary credentials)" }
+        {
+          "key": "AWS_ACCESS_KEY_ID",
+          "type": "secretRef",
+          "description": "AWS access key ID"
+        },
+        {
+          "key": "AWS_SECRET_ACCESS_KEY",
+          "type": "secretRef",
+          "description": "AWS secret access key"
+        },
+        {
+          "key": "AWS_DEFAULT_REGION",
+          "value": "us-east-1",
+          "type": "literal",
+          "description": "Default AWS region"
+        },
+        {
+          "key": "AWS_PROFILE",
+          "value": "default",
+          "type": "literal",
+          "description": "AWS CLI profile name"
+        },
+        {
+          "key": "AWS_SESSION_TOKEN",
+          "type": "secretRef",
+          "description": "AWS session token (for temporary credentials)"
+        }
       ]
     },
     {
@@ -59,13 +203,42 @@
       "description": "Node.js and NPM configuration for JavaScript development",
       "category": "Development",
       "icon": "symbol-method",
-      "tags": ["nodejs", "npm", "javascript", "typescript"],
+      "tags": [
+        "nodejs",
+        "npm",
+        "javascript",
+        "typescript"
+      ],
       "variables": [
-        { "key": "NODE_ENV", "value": "development", "type": "literal", "description": "Node environment (development/production/test)" },
-        { "key": "NODE_OPTIONS", "value": "--max-old-space-size=4096", "type": "literal", "description": "Node.js runtime options" },
-        { "key": "NPM_TOKEN", "type": "secretRef", "description": "NPM authentication token" },
-        { "key": "NPM_CONFIG_REGISTRY", "value": "https://registry.npmjs.org/", "type": "literal", "description": "NPM registry URL" },
-        { "key": "DEBUG", "value": "*", "type": "literal", "description": "Debug namespace pattern" }
+        {
+          "key": "NODE_ENV",
+          "value": "development",
+          "type": "literal",
+          "description": "Node environment (development/production/test)"
+        },
+        {
+          "key": "NODE_OPTIONS",
+          "value": "--max-old-space-size=4096",
+          "type": "literal",
+          "description": "Node.js runtime options"
+        },
+        {
+          "key": "NPM_TOKEN",
+          "type": "secretRef",
+          "description": "NPM authentication token"
+        },
+        {
+          "key": "NPM_CONFIG_REGISTRY",
+          "value": "https://registry.npmjs.org/",
+          "type": "literal",
+          "description": "NPM registry URL"
+        },
+        {
+          "key": "DEBUG",
+          "value": "*",
+          "type": "literal",
+          "description": "Debug namespace pattern"
+        }
       ]
     },
     {
@@ -74,13 +247,40 @@
       "description": "Python environment and package management configuration",
       "category": "Development",
       "icon": "symbol-namespace",
-      "tags": ["python", "pip", "conda"],
+      "tags": [
+        "python",
+        "pip",
+        "conda"
+      ],
       "variables": [
-        { "key": "PYTHONPATH", "type": "literal", "description": "Python module search path" },
-        { "key": "PYTHONDONTWRITEBYTECODE", "value": "1", "type": "literal", "description": "Prevent .pyc file creation" },
-        { "key": "PYTHONUNBUFFERED", "value": "1", "type": "literal", "description": "Force unbuffered stdout/stderr" },
-        { "key": "PIP_INDEX_URL", "value": "https://pypi.org/simple", "type": "literal", "description": "PyPI index URL" },
-        { "key": "VIRTUAL_ENV", "type": "literal", "description": "Virtual environment path" }
+        {
+          "key": "PYTHONPATH",
+          "type": "literal",
+          "description": "Python module search path"
+        },
+        {
+          "key": "PYTHONDONTWRITEBYTECODE",
+          "value": "1",
+          "type": "literal",
+          "description": "Prevent .pyc file creation"
+        },
+        {
+          "key": "PYTHONUNBUFFERED",
+          "value": "1",
+          "type": "literal",
+          "description": "Force unbuffered stdout/stderr"
+        },
+        {
+          "key": "PIP_INDEX_URL",
+          "value": "https://pypi.org/simple",
+          "type": "literal",
+          "description": "PyPI index URL"
+        },
+        {
+          "key": "VIRTUAL_ENV",
+          "type": "literal",
+          "description": "Virtual environment path"
+        }
       ]
     },
     {
@@ -89,13 +289,39 @@
       "description": "Docker and containerization configuration",
       "category": "DevOps",
       "icon": "package",
-      "tags": ["docker", "container", "devops"],
+      "tags": [
+        "docker",
+        "container",
+        "devops"
+      ],
       "variables": [
-        { "key": "DOCKER_HOST", "type": "literal", "description": "Docker daemon socket/host" },
-        { "key": "DOCKER_BUILDKIT", "value": "1", "type": "literal", "description": "Enable Docker BuildKit" },
-        { "key": "COMPOSE_DOCKER_CLI_BUILD", "value": "1", "type": "literal", "description": "Use Docker CLI in Compose" },
-        { "key": "DOCKER_USERNAME", "type": "literal", "description": "Docker Hub username" },
-        { "key": "DOCKER_PASSWORD", "type": "secretRef", "description": "Docker Hub password/token" }
+        {
+          "key": "DOCKER_HOST",
+          "type": "literal",
+          "description": "Docker daemon socket/host"
+        },
+        {
+          "key": "DOCKER_BUILDKIT",
+          "value": "1",
+          "type": "literal",
+          "description": "Enable Docker BuildKit"
+        },
+        {
+          "key": "COMPOSE_DOCKER_CLI_BUILD",
+          "value": "1",
+          "type": "literal",
+          "description": "Use Docker CLI in Compose"
+        },
+        {
+          "key": "DOCKER_USERNAME",
+          "type": "literal",
+          "description": "Docker Hub username"
+        },
+        {
+          "key": "DOCKER_PASSWORD",
+          "type": "secretRef",
+          "description": "Docker Hub password/token"
+        }
       ]
     },
     {
@@ -104,12 +330,33 @@
       "description": "HTTP/HTTPS proxy configuration for network access",
       "category": "Network",
       "icon": "globe",
-      "tags": ["proxy", "network", "http"],
+      "tags": [
+        "proxy",
+        "network",
+        "http"
+      ],
       "variables": [
-        { "key": "HTTP_PROXY", "type": "literal", "description": "HTTP proxy URL (e.g., http://proxy:8080)" },
-        { "key": "HTTPS_PROXY", "type": "literal", "description": "HTTPS proxy URL" },
-        { "key": "NO_PROXY", "value": "localhost,127.0.0.1,.local", "type": "literal", "description": "Hosts to bypass proxy" },
-        { "key": "ALL_PROXY", "type": "literal", "description": "Universal proxy (socks5://...)" }
+        {
+          "key": "HTTP_PROXY",
+          "type": "literal",
+          "description": "HTTP proxy URL (e.g., http://proxy:8080)"
+        },
+        {
+          "key": "HTTPS_PROXY",
+          "type": "literal",
+          "description": "HTTPS proxy URL"
+        },
+        {
+          "key": "NO_PROXY",
+          "value": "localhost,127.0.0.1,.local",
+          "type": "literal",
+          "description": "Hosts to bypass proxy"
+        },
+        {
+          "key": "ALL_PROXY",
+          "type": "literal",
+          "description": "Universal proxy (socks5://...)"
+        }
       ]
     },
     {
@@ -118,14 +365,45 @@
       "description": "Database connection and authentication configuration",
       "category": "Database",
       "icon": "database",
-      "tags": ["database", "sql", "postgresql", "mysql"],
+      "tags": [
+        "database",
+        "sql",
+        "postgresql",
+        "mysql"
+      ],
       "variables": [
-        { "key": "DATABASE_URL", "type": "secretRef", "description": "Full database connection string" },
-        { "key": "DB_HOST", "value": "localhost", "type": "literal", "description": "Database server hostname" },
-        { "key": "DB_PORT", "value": "5432", "type": "literal", "description": "Database server port" },
-        { "key": "DB_NAME", "type": "literal", "description": "Database name" },
-        { "key": "DB_USER", "type": "literal", "description": "Database username" },
-        { "key": "DB_PASSWORD", "type": "secretRef", "description": "Database password" }
+        {
+          "key": "DATABASE_URL",
+          "type": "secretRef",
+          "description": "Full database connection string"
+        },
+        {
+          "key": "DB_HOST",
+          "value": "localhost",
+          "type": "literal",
+          "description": "Database server hostname"
+        },
+        {
+          "key": "DB_PORT",
+          "value": "5432",
+          "type": "literal",
+          "description": "Database server port"
+        },
+        {
+          "key": "DB_NAME",
+          "type": "literal",
+          "description": "Database name"
+        },
+        {
+          "key": "DB_USER",
+          "type": "literal",
+          "description": "Database username"
+        },
+        {
+          "key": "DB_PASSWORD",
+          "type": "secretRef",
+          "description": "Database password"
+        }
       ]
     },
     {
@@ -134,11 +412,29 @@
       "description": "Kubernetes cluster configuration",
       "category": "DevOps",
       "icon": "server",
-      "tags": ["kubernetes", "k8s", "kubectl"],
+      "tags": [
+        "kubernetes",
+        "k8s",
+        "kubectl"
+      ],
       "variables": [
-        { "key": "KUBECONFIG", "value": "~/.kube/config", "type": "literal", "description": "Kubernetes config file path" },
-        { "key": "KUBE_CONTEXT", "type": "literal", "description": "Kubernetes context name" },
-        { "key": "KUBE_NAMESPACE", "value": "default", "type": "literal", "description": "Default namespace" }
+        {
+          "key": "KUBECONFIG",
+          "value": "~/.kube/config",
+          "type": "literal",
+          "description": "Kubernetes config file path"
+        },
+        {
+          "key": "KUBE_CONTEXT",
+          "type": "literal",
+          "description": "Kubernetes context name"
+        },
+        {
+          "key": "KUBE_NAMESPACE",
+          "value": "default",
+          "type": "literal",
+          "description": "Default namespace"
+        }
       ]
     },
     {
@@ -147,11 +443,27 @@
       "description": "GitHub and GitHub Actions configuration",
       "category": "CI/CD",
       "icon": "github",
-      "tags": ["github", "actions", "ci"],
+      "tags": [
+        "github",
+        "actions",
+        "ci"
+      ],
       "variables": [
-        { "key": "GITHUB_TOKEN", "type": "secretRef", "description": "GitHub personal access token" },
-        { "key": "GITHUB_REPOSITORY", "type": "literal", "description": "Repository (owner/repo)" },
-        { "key": "GITHUB_ACTOR", "type": "literal", "description": "GitHub username" }
+        {
+          "key": "GITHUB_TOKEN",
+          "type": "secretRef",
+          "description": "GitHub personal access token"
+        },
+        {
+          "key": "GITHUB_REPOSITORY",
+          "type": "literal",
+          "description": "Repository (owner/repo)"
+        },
+        {
+          "key": "GITHUB_ACTOR",
+          "type": "literal",
+          "description": "GitHub username"
+        }
       ]
     }
   ]
