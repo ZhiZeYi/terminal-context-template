@@ -102,8 +102,8 @@
       ]
     },
     {
-      "id": "claudecode-cli",
-      "name": "Claudecode / Anthropic (Claude) CLI",
+      "id": "claude-cli-deepseek",
+      "name": "Claudecode/deepseek / Anthropic (Claude) CLI",
       "description": "Environment variables for using claudecode-style CLI with Anthropic or Deepseek Anthropic proxy",
       "category": "AI",
       "icon": "terminal",
@@ -123,7 +123,7 @@
           "key": "ANTHROPIC_BASE_URL",
           "value": "https://api.deepseek.com/anthropic",
           "type": "literal",
-          "description": "Base URL for Anthropic or proxy endpoint (e.g., Deepseek). Adjust to provider."
+          "description": "Base URL for Anthropic or proxy endpoint (e.g., Deepseek). Adjust to provider. https://api.deepseek.com/anthropic "
         },
         {
           "key": "ANTHROPIC_MODEL",
