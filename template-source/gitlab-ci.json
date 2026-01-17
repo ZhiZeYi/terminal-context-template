@@ -1,0 +1,51 @@
+{
+    "id": "gitlab-ci",
+    "name": "GitLab CI",
+    "description": "GitLab CI/CD pipeline configuration",
+    "category": "DevOps",
+    "icon": "source-control",
+    "tags": [
+        "gitlab",
+        "ci",
+        "cd",
+        "pipeline"
+    ],
+    "variables": [
+        {
+            "key": "GITLAB_CI",
+            "value": "true",
+            "type": "literal",
+            "description": "GitLab CI environment indicator"
+        },
+        {
+            "key": "CI_PROJECT_NAME",
+            "type": "literal",
+            "description": "GitLab project name"
+        },
+        {
+            "key": "CI_COMMIT_BRANCH",
+            "type": "literal",
+            "description": "GitLab branch name"
+        },
+        {
+            "key": "CI_REGISTRY",
+            "type": "literal",
+            "description": "GitLab container registry"
+        },
+        {
+            "key": "CI_REGISTRY_USER",
+            "type": "literal",
+            "description": "Registry username"
+        },
+        {
+            "key": "CI_REGISTRY_PASSWORD",
+            "type": "secretRef",
+            "description": "Registry password"
+        },
+        {
+            "key": "CI_JOB_TOKEN",
+            "type": "secretRef",
+            "description": "GitLab CI job token"
+        }
+    ]
+}

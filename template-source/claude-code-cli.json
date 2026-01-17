@@ -1,0 +1,50 @@
+{
+    "id": "claude-code-cli",
+    "name": "Claude Code CLI",
+    "description": "Anthropic Claude Code CLI environment configuration",
+    "category": "AI CLI",
+    "icon": "terminal",
+    "tags": [
+        "claude",
+        "anthropic",
+        "claude-code",
+        "cli"
+    ],
+    "variables": [
+        {
+            "key": "ANTHROPIC_API_KEY",
+            "type": "secretRef",
+            "description": "Anthropic API key"
+        },
+        {
+            "key": "CLAUDE_CODE_USE_BEDROCK",
+            "value": "0",
+            "type": "literal",
+            "description": "Use AWS Bedrock for Claude (0 or 1)"
+        },
+        {
+            "key": "CLAUDE_CODE_USE_VERTEX",
+            "value": "0",
+            "type": "literal",
+            "description": "Use Google Vertex AI for Claude (0 or 1)"
+        },
+        {
+            "key": "CLAUDE_CODE_MAX_OUTPUT_TOKENS",
+            "value": "16000",
+            "type": "literal",
+            "description": "Maximum output tokens"
+        },
+        {
+            "key": "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC",
+            "value": "0",
+            "type": "literal",
+            "description": "Disable non-essential network traffic"
+        },
+        {
+            "key": "CLAUDE_CODE_SKIP_PERMISSIONS",
+            "value": "0",
+            "type": "literal",
+            "description": "Skip permission prompts (use with caution)"
+        }
+    ]
+}

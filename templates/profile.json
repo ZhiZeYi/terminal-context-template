@@ -1,10 +1,108 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2026-01-05",
+  "lastUpdated": "2026-01-17",
   "author": "TCM Community",
   "description": "Terminal Context Manager - Profile Templates & Environment Variables Dictionary",
-  "repository": "https://github.com/user/tcm-templates",
+  "repository": "https://github.com/ZhiZeYi/terminal-context-template",
   "templates": [
+    {
+      "id": "dotnet-dev",
+      "name": ".NET Development",
+      "description": ".NET and ASP.NET Core development configuration",
+      "category": "Development",
+      "icon": "symbol-interface",
+      "tags": [
+        "dotnet",
+        "csharp",
+        "aspnet",
+        "nuget"
+      ],
+      "variables": [
+        {
+          "key": "DOTNET_ROOT",
+          "type": "literal",
+          "description": ".NET installation directory"
+        },
+        {
+          "key": "ASPNETCORE_ENVIRONMENT",
+          "value": "Development",
+          "type": "literal",
+          "description": "ASP.NET Core environment"
+        },
+        {
+          "key": "ASPNETCORE_URLS",
+          "value": "http://localhost:5000",
+          "type": "literal",
+          "description": "ASP.NET Core listening URLs"
+        },
+        {
+          "key": "DOTNET_CLI_TELEMETRY_OPTOUT",
+          "value": "1",
+          "type": "literal",
+          "description": "Opt out of telemetry"
+        },
+        {
+          "key": "NUGET_PACKAGES",
+          "type": "literal",
+          "description": "NuGet packages directory"
+        }
+      ]
+    },
+    {
+      "id": "flask-django",
+      "name": "Flask & Django",
+      "description": "Python web frameworks configuration",
+      "category": "Development",
+      "icon": "symbol-namespace",
+      "tags": [
+        "flask",
+        "django",
+        "python",
+        "web"
+      ],
+      "variables": [
+        {
+          "key": "FLASK_APP",
+          "value": "app.py",
+          "type": "literal",
+          "description": "Flask application entry point"
+        },
+        {
+          "key": "FLASK_ENV",
+          "value": "development",
+          "type": "literal",
+          "description": "Flask environment"
+        },
+        {
+          "key": "FLASK_DEBUG",
+          "value": "1",
+          "type": "literal",
+          "description": "Flask debug mode"
+        },
+        {
+          "key": "DJANGO_SETTINGS_MODULE",
+          "type": "literal",
+          "description": "Django settings module"
+        },
+        {
+          "key": "DJANGO_SECRET_KEY",
+          "type": "secretRef",
+          "description": "Django secret key"
+        },
+        {
+          "key": "DJANGO_DEBUG",
+          "value": "True",
+          "type": "literal",
+          "description": "Django debug mode"
+        },
+        {
+          "key": "DJANGO_ALLOWED_HOSTS",
+          "value": "localhost,127.0.0.1",
+          "type": "literal",
+          "description": "Django allowed hosts"
+        }
+      ]
+    },
     {
       "id": "git-dev",
       "name": "Git Development",
@@ -48,6 +146,421 @@
           "value": "ssh -o StrictHostKeyChecking=no",
           "type": "literal",
           "description": "SSH command for git"
+        }
+      ]
+    },
+    {
+      "id": "go-dev",
+      "name": "Go Development",
+      "description": "Go language development environment configuration",
+      "category": "Development",
+      "icon": "symbol-method",
+      "tags": [
+        "go",
+        "golang",
+        "cgo"
+      ],
+      "variables": [
+        {
+          "key": "GOPATH",
+          "type": "literal",
+          "description": "Go workspace path"
+        },
+        {
+          "key": "GOROOT",
+          "type": "literal",
+          "description": "Go installation directory"
+        },
+        {
+          "key": "GOBIN",
+          "type": "literal",
+          "description": "Go binary directory"
+        },
+        {
+          "key": "GOPROXY",
+          "value": "https://proxy.golang.org,direct",
+          "type": "literal",
+          "description": "Go module proxy URL"
+        },
+        {
+          "key": "GOPRIVATE",
+          "type": "literal",
+          "description": "Private module patterns"
+        },
+        {
+          "key": "CGO_ENABLED",
+          "value": "1",
+          "type": "literal",
+          "description": "Enable CGO"
+        }
+      ]
+    },
+    {
+      "id": "java-dev",
+      "name": "Java Development",
+      "description": "Java and JVM-based languages development configuration",
+      "category": "Development",
+      "icon": "symbol-class",
+      "tags": [
+        "java",
+        "jvm",
+        "maven",
+        "gradle"
+      ],
+      "variables": [
+        {
+          "key": "JAVA_HOME",
+          "type": "literal",
+          "description": "Java installation directory"
+        },
+        {
+          "key": "JAVA_OPTS",
+          "value": "-Xmx2g -Xms512m",
+          "type": "literal",
+          "description": "Java runtime options"
+        },
+        {
+          "key": "MAVEN_OPTS",
+          "value": "-Xmx1g",
+          "type": "literal",
+          "description": "Maven JVM options"
+        },
+        {
+          "key": "GRADLE_OPTS",
+          "value": "-Xmx1g -Dorg.gradle.daemon=true",
+          "type": "literal",
+          "description": "Gradle JVM options"
+        },
+        {
+          "key": "GRADLE_USER_HOME",
+          "type": "literal",
+          "description": "Gradle user home directory"
+        }
+      ]
+    },
+    {
+      "id": "nextjs-dev",
+      "name": "Next.js Development",
+      "description": "Next.js React framework development configuration",
+      "category": "Development",
+      "icon": "symbol-method",
+      "tags": [
+        "nextjs",
+        "react",
+        "vercel",
+        "ssr"
+      ],
+      "variables": [
+        {
+          "key": "NODE_ENV",
+          "value": "development",
+          "type": "literal",
+          "description": "Node environment"
+        },
+        {
+          "key": "NEXT_PUBLIC_API_URL",
+          "type": "literal",
+          "description": "Public API URL"
+        },
+        {
+          "key": "NEXTAUTH_URL",
+          "value": "http://localhost:3000",
+          "type": "literal",
+          "description": "NextAuth.js URL"
+        },
+        {
+          "key": "NEXTAUTH_SECRET",
+          "type": "secretRef",
+          "description": "NextAuth.js secret"
+        },
+        {
+          "key": "NEXT_TELEMETRY_DISABLED",
+          "value": "1",
+          "type": "literal",
+          "description": "Disable Next.js telemetry"
+        }
+      ]
+    },
+    {
+      "id": "nodejs-dev",
+      "name": "Node.js Development",
+      "description": "Node.js and NPM configuration for JavaScript development",
+      "category": "Development",
+      "icon": "symbol-method",
+      "tags": [
+        "nodejs",
+        "npm",
+        "javascript",
+        "typescript"
+      ],
+      "variables": [
+        {
+          "key": "NODE_ENV",
+          "value": "development",
+          "type": "literal",
+          "description": "Node environment (development/production/test)"
+        },
+        {
+          "key": "NODE_OPTIONS",
+          "value": "--max-old-space-size=4096",
+          "type": "literal",
+          "description": "Node.js runtime options"
+        },
+        {
+          "key": "NPM_TOKEN",
+          "type": "secretRef",
+          "description": "NPM authentication token"
+        },
+        {
+          "key": "NPM_CONFIG_REGISTRY",
+          "value": "https://registry.npmjs.org/",
+          "type": "literal",
+          "description": "NPM registry URL"
+        },
+        {
+          "key": "DEBUG",
+          "value": "*",
+          "type": "literal",
+          "description": "Debug namespace pattern"
+        }
+      ]
+    },
+    {
+      "id": "php-dev",
+      "name": "PHP Development",
+      "description": "PHP and Laravel development configuration",
+      "category": "Development",
+      "icon": "symbol-misc",
+      "tags": [
+        "php",
+        "laravel",
+        "composer",
+        "symfony"
+      ],
+      "variables": [
+        {
+          "key": "PHP_MEMORY_LIMIT",
+          "value": "512M",
+          "type": "literal",
+          "description": "PHP memory limit"
+        },
+        {
+          "key": "COMPOSER_HOME",
+          "type": "literal",
+          "description": "Composer home directory"
+        },
+        {
+          "key": "COMPOSER_NO_INTERACTION",
+          "value": "1",
+          "type": "literal",
+          "description": "Non-interactive mode"
+        },
+        {
+          "key": "APP_ENV",
+          "value": "local",
+          "type": "literal",
+          "description": "Laravel environment"
+        },
+        {
+          "key": "APP_DEBUG",
+          "value": "true",
+          "type": "literal",
+          "description": "Laravel debug mode"
+        },
+        {
+          "key": "APP_KEY",
+          "type": "secretRef",
+          "description": "Laravel application key"
+        }
+      ]
+    },
+    {
+      "id": "python-dev",
+      "name": "Python Development",
+      "description": "Python environment and package management configuration",
+      "category": "Development",
+      "icon": "symbol-namespace",
+      "tags": [
+        "python",
+        "pip",
+        "conda"
+      ],
+      "variables": [
+        {
+          "key": "PYTHONPATH",
+          "type": "literal",
+          "description": "Python module search path"
+        },
+        {
+          "key": "PYTHONDONTWRITEBYTECODE",
+          "value": "1",
+          "type": "literal",
+          "description": "Prevent .pyc file creation"
+        },
+        {
+          "key": "PYTHONUNBUFFERED",
+          "value": "1",
+          "type": "literal",
+          "description": "Force unbuffered stdout/stderr"
+        },
+        {
+          "key": "PIP_INDEX_URL",
+          "value": "https://pypi.org/simple",
+          "type": "literal",
+          "description": "PyPI index URL"
+        },
+        {
+          "key": "VIRTUAL_ENV",
+          "type": "literal",
+          "description": "Virtual environment path"
+        }
+      ]
+    },
+    {
+      "id": "ruby-dev",
+      "name": "Ruby Development",
+      "description": "Ruby and Rails development configuration",
+      "category": "Development",
+      "icon": "ruby",
+      "tags": [
+        "ruby",
+        "rails",
+        "bundler",
+        "gem"
+      ],
+      "variables": [
+        {
+          "key": "GEM_HOME",
+          "type": "literal",
+          "description": "Gem installation directory"
+        },
+        {
+          "key": "GEM_PATH",
+          "type": "literal",
+          "description": "Gem search path"
+        },
+        {
+          "key": "BUNDLE_PATH",
+          "type": "literal",
+          "description": "Bundler gem path"
+        },
+        {
+          "key": "BUNDLE_JOBS",
+          "value": "4",
+          "type": "literal",
+          "description": "Bundler parallel jobs"
+        },
+        {
+          "key": "RAILS_ENV",
+          "value": "development",
+          "type": "literal",
+          "description": "Rails environment"
+        },
+        {
+          "key": "RAILS_MASTER_KEY",
+          "type": "secretRef",
+          "description": "Rails master key"
+        }
+      ]
+    },
+    {
+      "id": "rust-dev",
+      "name": "Rust Development",
+      "description": "Rust and Cargo development environment configuration",
+      "category": "Development",
+      "icon": "symbol-struct",
+      "tags": [
+        "rust",
+        "cargo",
+        "rustup"
+      ],
+      "variables": [
+        {
+          "key": "CARGO_HOME",
+          "type": "literal",
+          "description": "Cargo home directory"
+        },
+        {
+          "key": "RUSTUP_HOME",
+          "type": "literal",
+          "description": "Rustup home directory"
+        },
+        {
+          "key": "RUST_BACKTRACE",
+          "value": "1",
+          "type": "literal",
+          "description": "Enable backtraces on panic"
+        },
+        {
+          "key": "RUST_LOG",
+          "value": "info",
+          "type": "literal",
+          "description": "Logging filter directive"
+        },
+        {
+          "key": "RUSTFLAGS",
+          "type": "literal",
+          "description": "Rust compiler flags"
+        },
+        {
+          "key": "CARGO_INCREMENTAL",
+          "value": "1",
+          "type": "literal",
+          "description": "Enable incremental compilation"
+        }
+      ]
+    },
+    {
+      "id": "web-framework",
+      "name": "Web Framework",
+      "description": "Common web application framework configuration",
+      "category": "Development",
+      "icon": "browser",
+      "tags": [
+        "web",
+        "http",
+        "server",
+        "api"
+      ],
+      "variables": [
+        {
+          "key": "PORT",
+          "value": "3000",
+          "type": "literal",
+          "description": "Server port number"
+        },
+        {
+          "key": "HOST",
+          "value": "localhost",
+          "type": "literal",
+          "description": "Server host address"
+        },
+        {
+          "key": "BASE_URL",
+          "value": "http://localhost:3000",
+          "type": "literal",
+          "description": "Application base URL"
+        },
+        {
+          "key": "API_URL",
+          "type": "literal",
+          "description": "API endpoint URL"
+        },
+        {
+          "key": "CORS_ORIGIN",
+          "value": "*",
+          "type": "literal",
+          "description": "CORS allowed origins"
+        },
+        {
+          "key": "SESSION_SECRET",
+          "type": "secretRef",
+          "description": "Session secret key"
+        },
+        {
+          "key": "JWT_SECRET",
+          "type": "secretRef",
+          "description": "JWT signing secret"
         }
       ]
     },
@@ -98,6 +611,77 @@
           "key": "HUGGINGFACE_TOKEN",
           "type": "secretRef",
           "description": "HuggingFace API token"
+        }
+      ]
+    },
+    {
+      "id": "ai-extended",
+      "name": "AI Extended",
+      "description": "Extended AI services including vector databases and specialized providers",
+      "category": "AI",
+      "icon": "hubot",
+      "tags": [
+        "ai",
+        "vector",
+        "langchain",
+        "embeddings"
+      ],
+      "variables": [
+        {
+          "key": "MISTRAL_API_KEY",
+          "type": "secretRef",
+          "description": "Mistral AI API key"
+        },
+        {
+          "key": "GROQ_API_KEY",
+          "type": "secretRef",
+          "description": "Groq API key"
+        },
+        {
+          "key": "TOGETHER_API_KEY",
+          "type": "secretRef",
+          "description": "Together AI API key"
+        },
+        {
+          "key": "DEEPSEEK_API_KEY",
+          "type": "secretRef",
+          "description": "DeepSeek API key"
+        },
+        {
+          "key": "REPLICATE_API_TOKEN",
+          "type": "secretRef",
+          "description": "Replicate API token"
+        },
+        {
+          "key": "COHERE_API_KEY",
+          "type": "secretRef",
+          "description": "Cohere API key"
+        },
+        {
+          "key": "OLLAMA_HOST",
+          "value": "http://localhost:11434",
+          "type": "literal",
+          "description": "Ollama server host"
+        },
+        {
+          "key": "LANGCHAIN_API_KEY",
+          "type": "secretRef",
+          "description": "LangChain API key"
+        },
+        {
+          "key": "LANGCHAIN_PROJECT",
+          "type": "literal",
+          "description": "LangChain project name"
+        },
+        {
+          "key": "PINECONE_API_KEY",
+          "type": "secretRef",
+          "description": "Pinecone vector DB API key"
+        },
+        {
+          "key": "QDRANT_API_KEY",
+          "type": "secretRef",
+          "description": "Qdrant vector DB API key"
         }
       ]
     },
@@ -198,88 +782,92 @@
       ]
     },
     {
-      "id": "nodejs-dev",
-      "name": "Node.js Development",
-      "description": "Node.js and NPM configuration for JavaScript development",
-      "category": "Development",
-      "icon": "symbol-method",
+      "id": "azure-cloud",
+      "name": "Azure Cloud",
+      "description": "Microsoft Azure cloud services configuration",
+      "category": "Cloud",
+      "icon": "cloud",
       "tags": [
-        "nodejs",
-        "npm",
-        "javascript",
-        "typescript"
+        "azure",
+        "cloud",
+        "microsoft"
       ],
       "variables": [
         {
-          "key": "NODE_ENV",
-          "value": "development",
+          "key": "AZURE_SUBSCRIPTION_ID",
           "type": "literal",
-          "description": "Node environment (development/production/test)"
+          "description": "Azure subscription ID"
         },
         {
-          "key": "NODE_OPTIONS",
-          "value": "--max-old-space-size=4096",
+          "key": "AZURE_TENANT_ID",
           "type": "literal",
-          "description": "Node.js runtime options"
+          "description": "Azure tenant ID"
         },
         {
-          "key": "NPM_TOKEN",
+          "key": "AZURE_CLIENT_ID",
+          "type": "literal",
+          "description": "Azure client/app ID"
+        },
+        {
+          "key": "AZURE_CLIENT_SECRET",
           "type": "secretRef",
-          "description": "NPM authentication token"
+          "description": "Azure client secret"
         },
         {
-          "key": "NPM_CONFIG_REGISTRY",
-          "value": "https://registry.npmjs.org/",
+          "key": "AZURE_DEFAULTS_LOCATION",
+          "value": "eastus",
           "type": "literal",
-          "description": "NPM registry URL"
+          "description": "Default Azure location"
         },
         {
-          "key": "DEBUG",
-          "value": "*",
+          "key": "AZURE_DEFAULTS_GROUP",
           "type": "literal",
-          "description": "Debug namespace pattern"
+          "description": "Default resource group"
         }
       ]
     },
     {
-      "id": "python-dev",
-      "name": "Python Development",
-      "description": "Python environment and package management configuration",
-      "category": "Development",
-      "icon": "symbol-namespace",
+      "id": "gcp-cloud",
+      "name": "Google Cloud Platform",
+      "description": "Google Cloud Platform services configuration",
+      "category": "Cloud",
+      "icon": "cloud",
       "tags": [
-        "python",
-        "pip",
-        "conda"
+        "gcp",
+        "google",
+        "cloud",
+        "gcloud"
       ],
       "variables": [
         {
-          "key": "PYTHONPATH",
+          "key": "GOOGLE_APPLICATION_CREDENTIALS",
           "type": "literal",
-          "description": "Python module search path"
+          "description": "Service account key path"
         },
         {
-          "key": "PYTHONDONTWRITEBYTECODE",
-          "value": "1",
+          "key": "GOOGLE_CLOUD_PROJECT",
           "type": "literal",
-          "description": "Prevent .pyc file creation"
+          "description": "GCP project ID"
         },
         {
-          "key": "PYTHONUNBUFFERED",
-          "value": "1",
+          "key": "CLOUDSDK_COMPUTE_REGION",
           "type": "literal",
-          "description": "Force unbuffered stdout/stderr"
+          "description": "Default compute region"
         },
         {
-          "key": "PIP_INDEX_URL",
-          "value": "https://pypi.org/simple",
+          "key": "CLOUDSDK_COMPUTE_ZONE",
           "type": "literal",
-          "description": "PyPI index URL"
+          "description": "Default compute zone"
         },
         {
-          "key": "VIRTUAL_ENV",
-          "type": "literal",
-          "description": "Virtual environment path"
+          "key": "GOOGLE_API_KEY",
+          "type": "secretRef",
+          "description": "Google API key"
+        },
+        {
+          "key": "FIREBASE_TOKEN",
+          "type": "secretRef",
+          "description": "Firebase CLI token"
         }
       ]
     },
@@ -325,37 +913,189 @@
       ]
     },
     {
-      "id": "proxy-network",
-      "name": "Network Proxy",
-      "description": "HTTP/HTTPS proxy configuration for network access",
-      "category": "Network",
-      "icon": "globe",
+      "id": "gitlab-ci",
+      "name": "GitLab CI",
+      "description": "GitLab CI/CD pipeline configuration",
+      "category": "DevOps",
+      "icon": "source-control",
       "tags": [
-        "proxy",
-        "network",
-        "http"
+        "gitlab",
+        "ci",
+        "cd",
+        "pipeline"
       ],
       "variables": [
         {
-          "key": "HTTP_PROXY",
+          "key": "GITLAB_CI",
+          "value": "true",
           "type": "literal",
-          "description": "HTTP proxy URL (e.g., http://proxy:8080)"
+          "description": "GitLab CI environment indicator"
         },
         {
-          "key": "HTTPS_PROXY",
+          "key": "CI_PROJECT_NAME",
           "type": "literal",
-          "description": "HTTPS proxy URL"
+          "description": "GitLab project name"
         },
         {
-          "key": "NO_PROXY",
-          "value": "localhost,127.0.0.1,.local",
+          "key": "CI_COMMIT_BRANCH",
           "type": "literal",
-          "description": "Hosts to bypass proxy"
+          "description": "GitLab branch name"
         },
         {
-          "key": "ALL_PROXY",
+          "key": "CI_REGISTRY",
           "type": "literal",
-          "description": "Universal proxy (socks5://...)"
+          "description": "GitLab container registry"
+        },
+        {
+          "key": "CI_REGISTRY_USER",
+          "type": "literal",
+          "description": "Registry username"
+        },
+        {
+          "key": "CI_REGISTRY_PASSWORD",
+          "type": "secretRef",
+          "description": "Registry password"
+        },
+        {
+          "key": "CI_JOB_TOKEN",
+          "type": "secretRef",
+          "description": "GitLab CI job token"
+        }
+      ]
+    },
+    {
+      "id": "kubernetes",
+      "name": "Kubernetes",
+      "description": "Kubernetes cluster configuration",
+      "category": "DevOps",
+      "icon": "server",
+      "tags": [
+        "kubernetes",
+        "k8s",
+        "kubectl"
+      ],
+      "variables": [
+        {
+          "key": "KUBECONFIG",
+          "value": "~/.kube/config",
+          "type": "literal",
+          "description": "Kubernetes config file path"
+        },
+        {
+          "key": "KUBE_CONTEXT",
+          "type": "literal",
+          "description": "Kubernetes context name"
+        },
+        {
+          "key": "KUBE_NAMESPACE",
+          "value": "default",
+          "type": "literal",
+          "description": "Default namespace"
+        }
+      ]
+    },
+    {
+      "id": "monitoring",
+      "name": "Monitoring & APM",
+      "description": "Application monitoring and error tracking services",
+      "category": "DevOps",
+      "icon": "graph-line",
+      "tags": [
+        "monitoring",
+        "sentry",
+        "datadog",
+        "apm"
+      ],
+      "variables": [
+        {
+          "key": "SENTRY_DSN",
+          "type": "secretRef",
+          "description": "Sentry error tracking DSN"
+        },
+        {
+          "key": "SENTRY_ENVIRONMENT",
+          "value": "development",
+          "type": "literal",
+          "description": "Sentry environment name"
+        },
+        {
+          "key": "DD_API_KEY",
+          "type": "secretRef",
+          "description": "Datadog API key"
+        },
+        {
+          "key": "DD_ENV",
+          "value": "development",
+          "type": "literal",
+          "description": "Datadog environment"
+        },
+        {
+          "key": "DD_SERVICE",
+          "type": "literal",
+          "description": "Datadog service name"
+        },
+        {
+          "key": "NEW_RELIC_LICENSE_KEY",
+          "type": "secretRef",
+          "description": "New Relic license key"
+        },
+        {
+          "key": "OTEL_EXPORTER_OTLP_ENDPOINT",
+          "type": "literal",
+          "description": "OpenTelemetry endpoint"
+        },
+        {
+          "key": "OTEL_SERVICE_NAME",
+          "type": "literal",
+          "description": "OpenTelemetry service name"
+        }
+      ]
+    },
+    {
+      "id": "terraform",
+      "name": "Terraform",
+      "description": "Terraform infrastructure as code configuration",
+      "category": "DevOps",
+      "icon": "server-environment",
+      "tags": [
+        "terraform",
+        "iac",
+        "infrastructure",
+        "hashicorp"
+      ],
+      "variables": [
+        {
+          "key": "TF_LOG",
+          "value": "INFO",
+          "type": "literal",
+          "description": "Terraform log level"
+        },
+        {
+          "key": "TF_LOG_PATH",
+          "type": "literal",
+          "description": "Terraform log file path"
+        },
+        {
+          "key": "TF_PLUGIN_CACHE_DIR",
+          "type": "literal",
+          "description": "Plugin cache directory"
+        },
+        {
+          "key": "TF_INPUT",
+          "value": "false",
+          "type": "literal",
+          "description": "Disable interactive prompts"
+        },
+        {
+          "key": "TF_IN_AUTOMATION",
+          "value": "true",
+          "type": "literal",
+          "description": "Running in automation"
+        },
+        {
+          "key": "TERRAFORM_ENTERPRISE_TOKEN",
+          "type": "secretRef",
+          "description": "Terraform Enterprise token"
         }
       ]
     },
@@ -407,33 +1147,88 @@
       ]
     },
     {
-      "id": "kubernetes",
-      "name": "Kubernetes",
-      "description": "Kubernetes cluster configuration",
-      "category": "DevOps",
-      "icon": "server",
+      "id": "china-mirrors",
+      "name": "China Mirrors",
+      "description": "Package registry mirrors for China region",
+      "category": "Network",
+      "icon": "globe",
       "tags": [
-        "kubernetes",
-        "k8s",
-        "kubectl"
+        "china",
+        "mirror",
+        "npm",
+        "pip"
       ],
       "variables": [
         {
-          "key": "KUBECONFIG",
-          "value": "~/.kube/config",
+          "key": "NPM_CONFIG_REGISTRY",
+          "value": "https://registry.npmmirror.com",
           "type": "literal",
-          "description": "Kubernetes config file path"
+          "description": "NPM mirror (npmmirror)"
         },
         {
-          "key": "KUBE_CONTEXT",
+          "key": "PIP_INDEX_URL",
+          "value": "https://pypi.tuna.tsinghua.edu.cn/simple",
           "type": "literal",
-          "description": "Kubernetes context name"
+          "description": "PyPI mirror (Tsinghua)"
         },
         {
-          "key": "KUBE_NAMESPACE",
-          "value": "default",
+          "key": "PIP_TRUSTED_HOST",
+          "value": "pypi.tuna.tsinghua.edu.cn",
           "type": "literal",
-          "description": "Default namespace"
+          "description": "Trusted PyPI host"
+        },
+        {
+          "key": "GOPROXY",
+          "value": "https://goproxy.cn,direct",
+          "type": "literal",
+          "description": "Go module proxy (goproxy.cn)"
+        },
+        {
+          "key": "RUSTUP_DIST_SERVER",
+          "value": "https://rsproxy.cn",
+          "type": "literal",
+          "description": "Rustup mirror (rsproxy)"
+        },
+        {
+          "key": "RUSTUP_UPDATE_ROOT",
+          "value": "https://rsproxy.cn/rustup",
+          "type": "literal",
+          "description": "Rustup update root"
+        }
+      ]
+    },
+    {
+      "id": "proxy-network",
+      "name": "Network Proxy",
+      "description": "HTTP/HTTPS proxy configuration for network access",
+      "category": "Network",
+      "icon": "globe",
+      "tags": [
+        "proxy",
+        "network",
+        "http"
+      ],
+      "variables": [
+        {
+          "key": "HTTP_PROXY",
+          "type": "literal",
+          "description": "HTTP proxy URL (e.g., http://proxy:8080)"
+        },
+        {
+          "key": "HTTPS_PROXY",
+          "type": "literal",
+          "description": "HTTPS proxy URL"
+        },
+        {
+          "key": "NO_PROXY",
+          "value": "localhost,127.0.0.1,.local",
+          "type": "literal",
+          "description": "Hosts to bypass proxy"
+        },
+        {
+          "key": "ALL_PROXY",
+          "type": "literal",
+          "description": "Universal proxy (socks5://...)"
         }
       ]
     },
@@ -463,6 +1258,974 @@
           "key": "GITHUB_ACTOR",
           "type": "literal",
           "description": "GitHub username"
+        }
+      ]
+    },
+    {
+      "id": "aider-cli",
+      "name": "Aider CLI",
+      "description": "Aider AI pair programming CLI configuration",
+      "category": "AI CLI",
+      "icon": "terminal",
+      "tags": [
+        "aider",
+        "cli",
+        "pair-programming",
+        "ai"
+      ],
+      "variables": [
+        {
+          "key": "OPENAI_API_KEY",
+          "type": "secretRef",
+          "description": "OpenAI API key for Aider"
+        },
+        {
+          "key": "ANTHROPIC_API_KEY",
+          "type": "secretRef",
+          "description": "Anthropic API key for Aider"
+        },
+        {
+          "key": "AIDER_MODEL",
+          "value": "gpt-4o",
+          "type": "literal",
+          "description": "Default Aider model"
+        },
+        {
+          "key": "AIDER_DARK_MODE",
+          "value": "true",
+          "type": "literal",
+          "description": "Enable dark mode"
+        },
+        {
+          "key": "AIDER_AUTO_COMMITS",
+          "value": "true",
+          "type": "literal",
+          "description": "Auto commit changes"
+        },
+        {
+          "key": "AIDER_GIT_ROOT",
+          "type": "literal",
+          "description": "Git repository root"
+        },
+        {
+          "key": "AIDER_VIM",
+          "value": "false",
+          "type": "literal",
+          "description": "Enable vim keybindings"
+        },
+        {
+          "key": "AIDER_EDIT_FORMAT",
+          "value": "diff",
+          "type": "literal",
+          "description": "Edit format (diff/whole/udiff)"
+        },
+        {
+          "key": "OPENROUTER_API_KEY",
+          "type": "secretRef",
+          "description": "OpenRouter API key"
+        },
+        {
+          "key": "DEEPSEEK_API_KEY",
+          "type": "secretRef",
+          "description": "DeepSeek API key"
+        }
+      ]
+    },
+    {
+      "id": "amazon-q",
+      "name": "Amazon Q Developer",
+      "description": "Amazon Q Developer (formerly CodeWhisperer) configuration",
+      "category": "AI CLI",
+      "icon": "cloud",
+      "tags": [
+        "amazon-q",
+        "aws",
+        "codewhisperer",
+        "ai"
+      ],
+      "variables": [
+        {
+          "key": "AWS_ACCESS_KEY_ID",
+          "type": "secretRef",
+          "description": "AWS access key ID"
+        },
+        {
+          "key": "AWS_SECRET_ACCESS_KEY",
+          "type": "secretRef",
+          "description": "AWS secret access key"
+        },
+        {
+          "key": "AWS_REGION",
+          "value": "us-east-1",
+          "type": "literal",
+          "description": "AWS region"
+        },
+        {
+          "key": "CODEWHISPERER_TELEMETRY",
+          "value": "1",
+          "type": "literal",
+          "description": "Enable telemetry"
+        },
+        {
+          "key": "Q_DEVELOPER_PROFILE",
+          "type": "literal",
+          "description": "Amazon Q Developer profile"
+        }
+      ]
+    },
+    {
+      "id": "claude-code-cli",
+      "name": "Claude Code CLI",
+      "description": "Anthropic Claude Code CLI environment configuration",
+      "category": "AI CLI",
+      "icon": "terminal",
+      "tags": [
+        "claude",
+        "anthropic",
+        "claude-code",
+        "cli"
+      ],
+      "variables": [
+        {
+          "key": "ANTHROPIC_API_KEY",
+          "type": "secretRef",
+          "description": "Anthropic API key"
+        },
+        {
+          "key": "CLAUDE_CODE_USE_BEDROCK",
+          "value": "0",
+          "type": "literal",
+          "description": "Use AWS Bedrock for Claude (0 or 1)"
+        },
+        {
+          "key": "CLAUDE_CODE_USE_VERTEX",
+          "value": "0",
+          "type": "literal",
+          "description": "Use Google Vertex AI for Claude (0 or 1)"
+        },
+        {
+          "key": "CLAUDE_CODE_MAX_OUTPUT_TOKENS",
+          "value": "16000",
+          "type": "literal",
+          "description": "Maximum output tokens"
+        },
+        {
+          "key": "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC",
+          "value": "0",
+          "type": "literal",
+          "description": "Disable non-essential network traffic"
+        },
+        {
+          "key": "CLAUDE_CODE_SKIP_PERMISSIONS",
+          "value": "0",
+          "type": "literal",
+          "description": "Skip permission prompts (use with caution)"
+        }
+      ]
+    },
+    {
+      "id": "cline-vscode",
+      "name": "Cline (Claude Dev)",
+      "description": "Cline VS Code extension environment configuration",
+      "category": "AI CLI",
+      "icon": "extensions",
+      "tags": [
+        "cline",
+        "claude-dev",
+        "vscode",
+        "extension"
+      ],
+      "variables": [
+        {
+          "key": "ANTHROPIC_API_KEY",
+          "type": "secretRef",
+          "description": "Anthropic API key for Cline"
+        },
+        {
+          "key": "OPENAI_API_KEY",
+          "type": "secretRef",
+          "description": "OpenAI API key for Cline"
+        },
+        {
+          "key": "OPENROUTER_API_KEY",
+          "type": "secretRef",
+          "description": "OpenRouter API key for Cline"
+        },
+        {
+          "key": "BEDROCK_ACCESS_KEY_ID",
+          "type": "secretRef",
+          "description": "AWS Bedrock access key"
+        },
+        {
+          "key": "BEDROCK_SECRET_ACCESS_KEY",
+          "type": "secretRef",
+          "description": "AWS Bedrock secret key"
+        },
+        {
+          "key": "BEDROCK_REGION",
+          "value": "us-east-1",
+          "type": "literal",
+          "description": "AWS Bedrock region"
+        },
+        {
+          "key": "VERTEX_PROJECT_ID",
+          "type": "literal",
+          "description": "Google Vertex AI project ID"
+        },
+        {
+          "key": "VERTEX_REGION",
+          "value": "us-central1",
+          "type": "literal",
+          "description": "Google Vertex AI region"
+        }
+      ]
+    },
+    {
+      "id": "codegpt-cli",
+      "name": "CodeGPT CLI",
+      "description": "CodeGPT CLI environment configuration",
+      "category": "AI CLI",
+      "icon": "terminal",
+      "tags": [
+        "codegpt",
+        "cli",
+        "ai"
+      ],
+      "variables": [
+        {
+          "key": "CODEGPT_API_KEY",
+          "type": "secretRef",
+          "description": "CodeGPT API key"
+        },
+        {
+          "key": "OPENAI_API_KEY",
+          "type": "secretRef",
+          "description": "OpenAI API key for CodeGPT"
+        },
+        {
+          "key": "CODEGPT_ORG_ID",
+          "type": "literal",
+          "description": "CodeGPT organization ID"
+        },
+        {
+          "key": "CODEGPT_AGENT_ID",
+          "type": "literal",
+          "description": "CodeGPT agent ID"
+        }
+      ]
+    },
+    {
+      "id": "codeium",
+      "name": "Codeium",
+      "description": "Codeium AI code completion configuration",
+      "category": "AI CLI",
+      "icon": "lightbulb",
+      "tags": [
+        "codeium",
+        "completion",
+        "ai"
+      ],
+      "variables": [
+        {
+          "key": "CODEIUM_API_KEY",
+          "type": "secretRef",
+          "description": "Codeium API key"
+        },
+        {
+          "key": "CODEIUM_ENTERPRISE_MODE",
+          "value": "false",
+          "type": "literal",
+          "description": "Enable enterprise mode"
+        },
+        {
+          "key": "CODEIUM_PORTAL_URL",
+          "type": "literal",
+          "description": "Enterprise portal URL"
+        }
+      ]
+    },
+    {
+      "id": "continue-dev",
+      "name": "Continue Dev",
+      "description": "Continue.dev VS Code/JetBrains extension configuration",
+      "category": "AI CLI",
+      "icon": "symbol-method",
+      "tags": [
+        "continue",
+        "vscode",
+        "jetbrains",
+        "extension"
+      ],
+      "variables": [
+        {
+          "key": "OPENAI_API_KEY",
+          "type": "secretRef",
+          "description": "OpenAI API key"
+        },
+        {
+          "key": "ANTHROPIC_API_KEY",
+          "type": "secretRef",
+          "description": "Anthropic API key"
+        },
+        {
+          "key": "OLLAMA_BASE_URL",
+          "value": "http://localhost:11434",
+          "type": "literal",
+          "description": "Ollama server URL"
+        },
+        {
+          "key": "TOGETHER_API_KEY",
+          "type": "secretRef",
+          "description": "Together AI API key"
+        },
+        {
+          "key": "MISTRAL_API_KEY",
+          "type": "secretRef",
+          "description": "Mistral AI API key"
+        },
+        {
+          "key": "GROQ_API_KEY",
+          "type": "secretRef",
+          "description": "Groq API key"
+        },
+        {
+          "key": "CONTINUE_GLOBAL_DIR",
+          "type": "literal",
+          "description": "Continue config directory"
+        }
+      ]
+    },
+    {
+      "id": "cursor-ide",
+      "name": "Cursor IDE",
+      "description": "Cursor AI IDE environment configuration",
+      "category": "AI CLI",
+      "icon": "edit",
+      "tags": [
+        "cursor",
+        "ide",
+        "ai",
+        "editor"
+      ],
+      "variables": [
+        {
+          "key": "CURSOR_API_KEY",
+          "type": "secretRef",
+          "description": "Cursor API key (for enterprise)"
+        },
+        {
+          "key": "OPENAI_API_KEY",
+          "type": "secretRef",
+          "description": "OpenAI API key for Cursor"
+        },
+        {
+          "key": "ANTHROPIC_API_KEY",
+          "type": "secretRef",
+          "description": "Anthropic API key for Cursor"
+        },
+        {
+          "key": "CURSOR_CHANNEL",
+          "value": "stable",
+          "type": "literal",
+          "description": "Cursor update channel (stable/insider)"
+        },
+        {
+          "key": "CURSOR_TELEMETRY",
+          "value": "1",
+          "type": "literal",
+          "description": "Enable Cursor telemetry"
+        }
+      ]
+    },
+    {
+      "id": "email-sms",
+      "name": "Email & SMS Services",
+      "description": "Email and SMS notification services configuration",
+      "category": "Services",
+      "icon": "mail",
+      "tags": [
+        "email",
+        "sms",
+        "smtp",
+        "sendgrid",
+        "twilio"
+      ],
+      "variables": [
+        {
+          "key": "SMTP_HOST",
+          "type": "literal",
+          "description": "SMTP server host"
+        },
+        {
+          "key": "SMTP_PORT",
+          "value": "587",
+          "type": "literal",
+          "description": "SMTP server port"
+        },
+        {
+          "key": "SMTP_USER",
+          "type": "literal",
+          "description": "SMTP username"
+        },
+        {
+          "key": "SMTP_PASSWORD",
+          "type": "secretRef",
+          "description": "SMTP password"
+        },
+        {
+          "key": "SENDGRID_API_KEY",
+          "type": "secretRef",
+          "description": "SendGrid API key"
+        },
+        {
+          "key": "MAILGUN_API_KEY",
+          "type": "secretRef",
+          "description": "Mailgun API key"
+        },
+        {
+          "key": "RESEND_API_KEY",
+          "type": "secretRef",
+          "description": "Resend API key"
+        },
+        {
+          "key": "TWILIO_ACCOUNT_SID",
+          "type": "literal",
+          "description": "Twilio account SID"
+        },
+        {
+          "key": "TWILIO_AUTH_TOKEN",
+          "type": "secretRef",
+          "description": "Twilio auth token"
+        },
+        {
+          "key": "TWILIO_PHONE_NUMBER",
+          "type": "literal",
+          "description": "Twilio phone number"
+        }
+      ]
+    },
+    {
+      "id": "gemini-cli",
+      "name": "Gemini CLI",
+      "description": "Google Gemini CLI and AI Studio configuration",
+      "category": "AI CLI",
+      "icon": "sparkle",
+      "tags": [
+        "gemini",
+        "google",
+        "cli",
+        "ai-studio"
+      ],
+      "variables": [
+        {
+          "key": "GEMINI_API_KEY",
+          "type": "secretRef",
+          "description": "Google Gemini API key"
+        },
+        {
+          "key": "GOOGLE_AI_API_KEY",
+          "type": "secretRef",
+          "description": "Google AI API key (alternate)"
+        },
+        {
+          "key": "GEMINI_MODEL",
+          "value": "gemini-2.0-flash",
+          "type": "literal",
+          "description": "Default Gemini model"
+        },
+        {
+          "key": "GOOGLE_APPLICATION_CREDENTIALS",
+          "type": "literal",
+          "description": "Service account key path"
+        },
+        {
+          "key": "GOOGLE_CLOUD_PROJECT",
+          "type": "literal",
+          "description": "GCP project ID for Vertex AI"
+        },
+        {
+          "key": "GEMINI_SAFETY_SETTINGS",
+          "value": "default",
+          "type": "literal",
+          "description": "Safety filter settings"
+        }
+      ]
+    },
+    {
+      "id": "github-copilot-cli",
+      "name": "GitHub Copilot CLI",
+      "description": "GitHub Copilot CLI and extensions configuration",
+      "category": "AI CLI",
+      "icon": "copilot",
+      "tags": [
+        "copilot",
+        "github",
+        "cli",
+        "vscode"
+      ],
+      "variables": [
+        {
+          "key": "GITHUB_TOKEN",
+          "type": "secretRef",
+          "description": "GitHub personal access token"
+        },
+        {
+          "key": "GITHUB_COPILOT_ENABLE",
+          "value": "true",
+          "type": "literal",
+          "description": "Enable GitHub Copilot"
+        },
+        {
+          "key": "COPILOT_AGENT_VERBOSE",
+          "value": "0",
+          "type": "literal",
+          "description": "Enable verbose logging"
+        },
+        {
+          "key": "GH_COPILOT_WORKSPACE",
+          "type": "literal",
+          "description": "Copilot workspace path"
+        },
+        {
+          "key": "GITHUB_COPILOT_DEBUG",
+          "value": "false",
+          "type": "literal",
+          "description": "Enable Copilot debug mode"
+        }
+      ]
+    },
+    {
+      "id": "lmstudio",
+      "name": "LM Studio",
+      "description": "LM Studio local model server configuration",
+      "category": "AI CLI",
+      "icon": "server-process",
+      "tags": [
+        "lmstudio",
+        "local",
+        "self-hosted",
+        "llm"
+      ],
+      "variables": [
+        {
+          "key": "LMSTUDIO_API_URL",
+          "value": "http://localhost:1234/v1",
+          "type": "literal",
+          "description": "LM Studio API URL"
+        },
+        {
+          "key": "OPENAI_API_BASE",
+          "value": "http://localhost:1234/v1",
+          "type": "literal",
+          "description": "OpenAI-compatible API base"
+        },
+        {
+          "key": "OPENAI_API_KEY",
+          "value": "lm-studio",
+          "type": "literal",
+          "description": "Placeholder API key for LM Studio"
+        },
+        {
+          "key": "LMSTUDIO_MODEL",
+          "type": "literal",
+          "description": "Default model to load"
+        }
+      ]
+    },
+    {
+      "id": "message-queue",
+      "name": "Message Queues",
+      "description": "Message brokers and queue services configuration",
+      "category": "Services",
+      "icon": "symbol-event",
+      "tags": [
+        "rabbitmq",
+        "kafka",
+        "redis",
+        "queue"
+      ],
+      "variables": [
+        {
+          "key": "RABBITMQ_HOST",
+          "value": "localhost",
+          "type": "literal",
+          "description": "RabbitMQ host"
+        },
+        {
+          "key": "RABBITMQ_PORT",
+          "value": "5672",
+          "type": "literal",
+          "description": "RabbitMQ port"
+        },
+        {
+          "key": "RABBITMQ_USER",
+          "value": "guest",
+          "type": "literal",
+          "description": "RabbitMQ username"
+        },
+        {
+          "key": "RABBITMQ_PASSWORD",
+          "type": "secretRef",
+          "description": "RabbitMQ password"
+        },
+        {
+          "key": "KAFKA_BOOTSTRAP_SERVERS",
+          "value": "localhost:9092",
+          "type": "literal",
+          "description": "Kafka bootstrap servers"
+        },
+        {
+          "key": "CELERY_BROKER_URL",
+          "type": "secretRef",
+          "description": "Celery broker URL"
+        },
+        {
+          "key": "CELERY_RESULT_BACKEND",
+          "type": "literal",
+          "description": "Celery result backend"
+        }
+      ]
+    },
+    {
+      "id": "oauth-providers",
+      "name": "OAuth Providers",
+      "description": "OAuth and social authentication providers",
+      "category": "Security",
+      "icon": "shield",
+      "tags": [
+        "oauth",
+        "auth",
+        "social",
+        "login"
+      ],
+      "variables": [
+        {
+          "key": "AUTH0_DOMAIN",
+          "type": "literal",
+          "description": "Auth0 domain"
+        },
+        {
+          "key": "AUTH0_CLIENT_ID",
+          "type": "literal",
+          "description": "Auth0 client ID"
+        },
+        {
+          "key": "AUTH0_CLIENT_SECRET",
+          "type": "secretRef",
+          "description": "Auth0 client secret"
+        },
+        {
+          "key": "GOOGLE_CLIENT_ID",
+          "type": "literal",
+          "description": "Google OAuth client ID"
+        },
+        {
+          "key": "GOOGLE_CLIENT_SECRET",
+          "type": "secretRef",
+          "description": "Google OAuth client secret"
+        },
+        {
+          "key": "GITHUB_CLIENT_ID",
+          "type": "literal",
+          "description": "GitHub OAuth client ID"
+        },
+        {
+          "key": "GITHUB_CLIENT_SECRET",
+          "type": "secretRef",
+          "description": "GitHub OAuth client secret"
+        },
+        {
+          "key": "DISCORD_CLIENT_ID",
+          "type": "literal",
+          "description": "Discord client ID"
+        },
+        {
+          "key": "DISCORD_CLIENT_SECRET",
+          "type": "secretRef",
+          "description": "Discord client secret"
+        }
+      ]
+    },
+    {
+      "id": "ollama-local",
+      "name": "Ollama Local",
+      "description": "Ollama local LLM runner configuration",
+      "category": "AI CLI",
+      "icon": "server-process",
+      "tags": [
+        "ollama",
+        "local",
+        "self-hosted",
+        "llm"
+      ],
+      "variables": [
+        {
+          "key": "OLLAMA_HOST",
+          "value": "http://localhost:11434",
+          "type": "literal",
+          "description": "Ollama server host"
+        },
+        {
+          "key": "OLLAMA_MODELS",
+          "type": "literal",
+          "description": "Ollama models directory"
+        },
+        {
+          "key": "OLLAMA_KEEP_ALIVE",
+          "value": "5m",
+          "type": "literal",
+          "description": "Model keep-alive duration"
+        },
+        {
+          "key": "OLLAMA_NUM_PARALLEL",
+          "value": "1",
+          "type": "literal",
+          "description": "Number of parallel requests"
+        },
+        {
+          "key": "OLLAMA_MAX_LOADED_MODELS",
+          "value": "1",
+          "type": "literal",
+          "description": "Maximum loaded models"
+        },
+        {
+          "key": "OLLAMA_DEBUG",
+          "value": "0",
+          "type": "literal",
+          "description": "Enable debug logging"
+        },
+        {
+          "key": "OLLAMA_ORIGINS",
+          "value": "*",
+          "type": "literal",
+          "description": "Allowed CORS origins"
+        }
+      ]
+    },
+    {
+      "id": "openrouter",
+      "name": "OpenRouter",
+      "description": "OpenRouter unified AI API gateway configuration",
+      "category": "AI CLI",
+      "icon": "globe",
+      "tags": [
+        "openrouter",
+        "api-gateway",
+        "unified",
+        "ai"
+      ],
+      "variables": [
+        {
+          "key": "OPENROUTER_API_KEY",
+          "type": "secretRef",
+          "description": "OpenRouter API key"
+        },
+        {
+          "key": "OPENROUTER_BASE_URL",
+          "value": "https://openrouter.ai/api/v1",
+          "type": "literal",
+          "description": "OpenRouter API base URL"
+        },
+        {
+          "key": "OPENROUTER_DEFAULT_MODEL",
+          "value": "anthropic/claude-3.5-sonnet",
+          "type": "literal",
+          "description": "Default model to use"
+        },
+        {
+          "key": "OPENROUTER_SITE_URL",
+          "type": "literal",
+          "description": "Your site URL for rankings"
+        },
+        {
+          "key": "OPENROUTER_SITE_NAME",
+          "type": "literal",
+          "description": "Your site name for rankings"
+        },
+        {
+          "key": "OR_SITE_URL",
+          "type": "literal",
+          "description": "Site URL (short form)"
+        }
+      ]
+    },
+    {
+      "id": "payment-services",
+      "name": "Payment Services",
+      "description": "Payment processing services configuration",
+      "category": "Services",
+      "icon": "credit-card",
+      "tags": [
+        "stripe",
+        "paypal",
+        "payment",
+        "billing"
+      ],
+      "variables": [
+        {
+          "key": "STRIPE_SECRET_KEY",
+          "type": "secretRef",
+          "description": "Stripe secret key"
+        },
+        {
+          "key": "STRIPE_PUBLISHABLE_KEY",
+          "type": "literal",
+          "description": "Stripe publishable key"
+        },
+        {
+          "key": "STRIPE_WEBHOOK_SECRET",
+          "type": "secretRef",
+          "description": "Stripe webhook secret"
+        },
+        {
+          "key": "PAYPAL_CLIENT_ID",
+          "type": "literal",
+          "description": "PayPal client ID"
+        },
+        {
+          "key": "PAYPAL_CLIENT_SECRET",
+          "type": "secretRef",
+          "description": "PayPal client secret"
+        },
+        {
+          "key": "PAYPAL_MODE",
+          "value": "sandbox",
+          "type": "literal",
+          "description": "PayPal mode (sandbox/live)"
+        }
+      ]
+    },
+    {
+      "id": "storage-services",
+      "name": "Storage Services",
+      "description": "Object storage and file services configuration",
+      "category": "Services",
+      "icon": "database",
+      "tags": [
+        "s3",
+        "storage",
+        "minio",
+        "r2"
+      ],
+      "variables": [
+        {
+          "key": "S3_BUCKET",
+          "type": "literal",
+          "description": "S3 bucket name"
+        },
+        {
+          "key": "S3_ENDPOINT",
+          "type": "literal",
+          "description": "S3-compatible endpoint"
+        },
+        {
+          "key": "S3_REGION",
+          "type": "literal",
+          "description": "S3 region"
+        },
+        {
+          "key": "S3_ACCESS_KEY",
+          "type": "secretRef",
+          "description": "S3 access key"
+        },
+        {
+          "key": "S3_SECRET_KEY",
+          "type": "secretRef",
+          "description": "S3 secret key"
+        },
+        {
+          "key": "MINIO_ENDPOINT",
+          "type": "literal",
+          "description": "MinIO endpoint"
+        },
+        {
+          "key": "AZURE_STORAGE_ACCOUNT",
+          "type": "literal",
+          "description": "Azure storage account"
+        },
+        {
+          "key": "AZURE_STORAGE_CONNECTION_STRING",
+          "type": "secretRef",
+          "description": "Azure storage connection string"
+        },
+        {
+          "key": "UPLOAD_DIR",
+          "value": "./uploads",
+          "type": "literal",
+          "description": "Upload directory path"
+        }
+      ]
+    },
+    {
+      "id": "tabby-ml",
+      "name": "Tabby ML",
+      "description": "Tabby self-hosted AI coding assistant configuration",
+      "category": "AI CLI",
+      "icon": "server",
+      "tags": [
+        "tabby",
+        "self-hosted",
+        "ai",
+        "completion"
+      ],
+      "variables": [
+        {
+          "key": "TABBY_API_ENDPOINT",
+          "value": "http://localhost:8080",
+          "type": "literal",
+          "description": "Tabby server endpoint"
+        },
+        {
+          "key": "TABBY_API_TOKEN",
+          "type": "secretRef",
+          "description": "Tabby API token"
+        },
+        {
+          "key": "TABBY_DISABLE_TELEMETRY",
+          "value": "1",
+          "type": "literal",
+          "description": "Disable Tabby telemetry"
+        },
+        {
+          "key": "TABBY_MODEL",
+          "type": "literal",
+          "description": "Tabby model name"
+        }
+      ]
+    },
+    {
+      "id": "windsurf-cascade",
+      "name": "Windsurf/Cascade",
+      "description": "Codeium Windsurf IDE and Cascade configuration",
+      "category": "AI CLI",
+      "icon": "edit",
+      "tags": [
+        "windsurf",
+        "cascade",
+        "codeium",
+        "ide"
+      ],
+      "variables": [
+        {
+          "key": "CODEIUM_API_KEY",
+          "type": "secretRef",
+          "description": "Codeium API key"
+        },
+        {
+          "key": "OPENAI_API_KEY",
+          "type": "secretRef",
+          "description": "OpenAI API key for custom models"
+        },
+        {
+          "key": "ANTHROPIC_API_KEY",
+          "type": "secretRef",
+          "description": "Anthropic API key for custom models"
+        },
+        {
+          "key": "WINDSURF_TELEMETRY",
+          "value": "1",
+          "type": "literal",
+          "description": "Enable Windsurf telemetry"
         }
       ]
     }

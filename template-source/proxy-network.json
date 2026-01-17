@@ -1,0 +1,35 @@
+{
+    "id": "proxy-network",
+    "name": "Network Proxy",
+    "description": "HTTP/HTTPS proxy configuration for network access",
+    "category": "Network",
+    "icon": "globe",
+    "tags": [
+        "proxy",
+        "network",
+        "http"
+    ],
+    "variables": [
+        {
+            "key": "HTTP_PROXY",
+            "type": "literal",
+            "description": "HTTP proxy URL (e.g., http://proxy:8080)"
+        },
+        {
+            "key": "HTTPS_PROXY",
+            "type": "literal",
+            "description": "HTTPS proxy URL"
+        },
+        {
+            "key": "NO_PROXY",
+            "value": "localhost,127.0.0.1,.local",
+            "type": "literal",
+            "description": "Hosts to bypass proxy"
+        },
+        {
+            "key": "ALL_PROXY",
+            "type": "literal",
+            "description": "Universal proxy (socks5://...)"
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "id": "codegpt-cli",
+    "name": "CodeGPT CLI",
+    "description": "CodeGPT CLI environment configuration",
+    "category": "AI CLI",
+    "icon": "terminal",
+    "tags": [
+        "codegpt",
+        "cli",
+        "ai"
+    ],
+    "variables": [
+        {
+            "key": "CODEGPT_API_KEY",
+            "type": "secretRef",
+            "description": "CodeGPT API key"
+        },
+        {
+            "key": "OPENAI_API_KEY",
+            "type": "secretRef",
+            "description": "OpenAI API key for CodeGPT"
+        },
+        {
+            "key": "CODEGPT_ORG_ID",
+            "type": "literal",
+            "description": "CodeGPT organization ID"
+        },
+        {
+            "key": "CODEGPT_AGENT_ID",
+            "type": "literal",
+            "description": "CodeGPT agent ID"
+        }
+    ]
+}

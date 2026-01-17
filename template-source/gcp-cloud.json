@@ -1,0 +1,45 @@
+{
+    "id": "gcp-cloud",
+    "name": "Google Cloud Platform",
+    "description": "Google Cloud Platform services configuration",
+    "category": "Cloud",
+    "icon": "cloud",
+    "tags": [
+        "gcp",
+        "google",
+        "cloud",
+        "gcloud"
+    ],
+    "variables": [
+        {
+            "key": "GOOGLE_APPLICATION_CREDENTIALS",
+            "type": "literal",
+            "description": "Service account key path"
+        },
+        {
+            "key": "GOOGLE_CLOUD_PROJECT",
+            "type": "literal",
+            "description": "GCP project ID"
+        },
+        {
+            "key": "CLOUDSDK_COMPUTE_REGION",
+            "type": "literal",
+            "description": "Default compute region"
+        },
+        {
+            "key": "CLOUDSDK_COMPUTE_ZONE",
+            "type": "literal",
+            "description": "Default compute zone"
+        },
+        {
+            "key": "GOOGLE_API_KEY",
+            "type": "secretRef",
+            "description": "Google API key"
+        },
+        {
+            "key": "FIREBASE_TOKEN",
+            "type": "secretRef",
+            "description": "Firebase CLI token"
+        }
+    ]
+}

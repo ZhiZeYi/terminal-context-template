@@ -1,0 +1,50 @@
+{
+    "id": "ai-dev",
+    "name": "AI Development",
+    "description": "API keys and configuration for AI/ML services",
+    "category": "AI",
+    "icon": "hubot",
+    "tags": [
+        "ai",
+        "openai",
+        "anthropic",
+        "llm"
+    ],
+    "variables": [
+        {
+            "key": "OPENAI_API_KEY",
+            "type": "secretRef",
+            "description": "OpenAI API key"
+        },
+        {
+            "key": "OPENAI_ORG_ID",
+            "type": "literal",
+            "description": "OpenAI organization ID"
+        },
+        {
+            "key": "ANTHROPIC_API_KEY",
+            "type": "secretRef",
+            "description": "Anthropic Claude API key"
+        },
+        {
+            "key": "AZURE_OPENAI_ENDPOINT",
+            "type": "literal",
+            "description": "Azure OpenAI endpoint URL"
+        },
+        {
+            "key": "AZURE_OPENAI_API_KEY",
+            "type": "secretRef",
+            "description": "Azure OpenAI API key"
+        },
+        {
+            "key": "GEMINI_API_KEY",
+            "type": "secretRef",
+            "description": "Google Gemini API key"
+        },
+        {
+            "key": "HUGGINGFACE_TOKEN",
+            "type": "secretRef",
+            "description": "HuggingFace API token"
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "id": "rust-dev",
+    "name": "Rust Development",
+    "description": "Rust and Cargo development environment configuration",
+    "category": "Development",
+    "icon": "symbol-struct",
+    "tags": [
+        "rust",
+        "cargo",
+        "rustup"
+    ],
+    "variables": [
+        {
+            "key": "CARGO_HOME",
+            "type": "literal",
+            "description": "Cargo home directory"
+        },
+        {
+            "key": "RUSTUP_HOME",
+            "type": "literal",
+            "description": "Rustup home directory"
+        },
+        {
+            "key": "RUST_BACKTRACE",
+            "value": "1",
+            "type": "literal",
+            "description": "Enable backtraces on panic"
+        },
+        {
+            "key": "RUST_LOG",
+            "value": "info",
+            "type": "literal",
+            "description": "Logging filter directive"
+        },
+        {
+            "key": "RUSTFLAGS",
+            "type": "literal",
+            "description": "Rust compiler flags"
+        },
+        {
+            "key": "CARGO_INCREMENTAL",
+            "value": "1",
+            "type": "literal",
+            "description": "Enable incremental compilation"
+        }
+    ]
+}

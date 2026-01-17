@@ -1,0 +1,48 @@
+{
+    "id": "terraform",
+    "name": "Terraform",
+    "description": "Terraform infrastructure as code configuration",
+    "category": "DevOps",
+    "icon": "server-environment",
+    "tags": [
+        "terraform",
+        "iac",
+        "infrastructure",
+        "hashicorp"
+    ],
+    "variables": [
+        {
+            "key": "TF_LOG",
+            "value": "INFO",
+            "type": "literal",
+            "description": "Terraform log level"
+        },
+        {
+            "key": "TF_LOG_PATH",
+            "type": "literal",
+            "description": "Terraform log file path"
+        },
+        {
+            "key": "TF_PLUGIN_CACHE_DIR",
+            "type": "literal",
+            "description": "Plugin cache directory"
+        },
+        {
+            "key": "TF_INPUT",
+            "value": "false",
+            "type": "literal",
+            "description": "Disable interactive prompts"
+        },
+        {
+            "key": "TF_IN_AUTOMATION",
+            "value": "true",
+            "type": "literal",
+            "description": "Running in automation"
+        },
+        {
+            "key": "TERRAFORM_ENTERPRISE_TOKEN",
+            "type": "secretRef",
+            "description": "Terraform Enterprise token"
+        }
+    ]
+}

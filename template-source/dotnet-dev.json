@@ -1,0 +1,43 @@
+{
+    "id": "dotnet-dev",
+    "name": ".NET Development",
+    "description": ".NET and ASP.NET Core development configuration",
+    "category": "Development",
+    "icon": "symbol-interface",
+    "tags": [
+        "dotnet",
+        "csharp",
+        "aspnet",
+        "nuget"
+    ],
+    "variables": [
+        {
+            "key": "DOTNET_ROOT",
+            "type": "literal",
+            "description": ".NET installation directory"
+        },
+        {
+            "key": "ASPNETCORE_ENVIRONMENT",
+            "value": "Development",
+            "type": "literal",
+            "description": "ASP.NET Core environment"
+        },
+        {
+            "key": "ASPNETCORE_URLS",
+            "value": "http://localhost:5000",
+            "type": "literal",
+            "description": "ASP.NET Core listening URLs"
+        },
+        {
+            "key": "DOTNET_CLI_TELEMETRY_OPTOUT",
+            "value": "1",
+            "type": "literal",
+            "description": "Opt out of telemetry"
+        },
+        {
+            "key": "NUGET_PACKAGES",
+            "type": "literal",
+            "description": "NuGet packages directory"
+        }
+    ]
+}

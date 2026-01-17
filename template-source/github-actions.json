@@ -1,0 +1,29 @@
+{
+    "id": "github-actions",
+    "name": "GitHub Actions",
+    "description": "GitHub and GitHub Actions configuration",
+    "category": "CI/CD",
+    "icon": "github",
+    "tags": [
+        "github",
+        "actions",
+        "ci"
+    ],
+    "variables": [
+        {
+            "key": "GITHUB_TOKEN",
+            "type": "secretRef",
+            "description": "GitHub personal access token"
+        },
+        {
+            "key": "GITHUB_REPOSITORY",
+            "type": "literal",
+            "description": "Repository (owner/repo)"
+        },
+        {
+            "key": "GITHUB_ACTOR",
+            "type": "literal",
+            "description": "GitHub username"
+        }
+    ]
+}

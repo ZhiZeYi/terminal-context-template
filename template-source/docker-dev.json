@@ -1,0 +1,41 @@
+{
+    "id": "docker-dev",
+    "name": "Docker & Container",
+    "description": "Docker and containerization configuration",
+    "category": "DevOps",
+    "icon": "package",
+    "tags": [
+        "docker",
+        "container",
+        "devops"
+    ],
+    "variables": [
+        {
+            "key": "DOCKER_HOST",
+            "type": "literal",
+            "description": "Docker daemon socket/host"
+        },
+        {
+            "key": "DOCKER_BUILDKIT",
+            "value": "1",
+            "type": "literal",
+            "description": "Enable Docker BuildKit"
+        },
+        {
+            "key": "COMPOSE_DOCKER_CLI_BUILD",
+            "value": "1",
+            "type": "literal",
+            "description": "Use Docker CLI in Compose"
+        },
+        {
+            "key": "DOCKER_USERNAME",
+            "type": "literal",
+            "description": "Docker Hub username"
+        },
+        {
+            "key": "DOCKER_PASSWORD",
+            "type": "secretRef",
+            "description": "Docker Hub password/token"
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "id": "git-dev",
+    "name": "Git Development",
+    "description": "Git version control configuration for development workflow",
+    "category": "Development",
+    "icon": "git-branch",
+    "tags": [
+        "git",
+        "vcs",
+        "development"
+    ],
+    "variables": [
+        {
+            "key": "GIT_AUTHOR_NAME",
+            "type": "literal",
+            "description": "Your name for git commits"
+        },
+        {
+            "key": "GIT_AUTHOR_EMAIL",
+            "type": "literal",
+            "description": "Your email for git commits"
+        },
+        {
+            "key": "GIT_COMMITTER_NAME",
+            "type": "literal",
+            "description": "Committer name (usually same as author)"
+        },
+        {
+            "key": "GIT_COMMITTER_EMAIL",
+            "type": "literal",
+            "description": "Committer email"
+        },
+        {
+            "key": "GIT_EDITOR",
+            "value": "code --wait",
+            "type": "literal",
+            "description": "Editor for git commit messages"
+        },
+        {
+            "key": "GIT_SSH_COMMAND",
+            "value": "ssh -o StrictHostKeyChecking=no",
+            "type": "literal",
+            "description": "SSH command for git"
+        }
+    ]
+}

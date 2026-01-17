@@ -1,0 +1,47 @@
+{
+    "id": "ruby-dev",
+    "name": "Ruby Development",
+    "description": "Ruby and Rails development configuration",
+    "category": "Development",
+    "icon": "ruby",
+    "tags": [
+        "ruby",
+        "rails",
+        "bundler",
+        "gem"
+    ],
+    "variables": [
+        {
+            "key": "GEM_HOME",
+            "type": "literal",
+            "description": "Gem installation directory"
+        },
+        {
+            "key": "GEM_PATH",
+            "type": "literal",
+            "description": "Gem search path"
+        },
+        {
+            "key": "BUNDLE_PATH",
+            "type": "literal",
+            "description": "Bundler gem path"
+        },
+        {
+            "key": "BUNDLE_JOBS",
+            "value": "4",
+            "type": "literal",
+            "description": "Bundler parallel jobs"
+        },
+        {
+            "key": "RAILS_ENV",
+            "value": "development",
+            "type": "literal",
+            "description": "Rails environment"
+        },
+        {
+            "key": "RAILS_MASTER_KEY",
+            "type": "secretRef",
+            "description": "Rails master key"
+        }
+    ]
+}

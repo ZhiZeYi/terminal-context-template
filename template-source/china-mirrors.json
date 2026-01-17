@@ -1,0 +1,51 @@
+{
+    "id": "china-mirrors",
+    "name": "China Mirrors",
+    "description": "Package registry mirrors for China region",
+    "category": "Network",
+    "icon": "globe",
+    "tags": [
+        "china",
+        "mirror",
+        "npm",
+        "pip"
+    ],
+    "variables": [
+        {
+            "key": "NPM_CONFIG_REGISTRY",
+            "value": "https://registry.npmmirror.com",
+            "type": "literal",
+            "description": "NPM mirror (npmmirror)"
+        },
+        {
+            "key": "PIP_INDEX_URL",
+            "value": "https://pypi.tuna.tsinghua.edu.cn/simple",
+            "type": "literal",
+            "description": "PyPI mirror (Tsinghua)"
+        },
+        {
+            "key": "PIP_TRUSTED_HOST",
+            "value": "pypi.tuna.tsinghua.edu.cn",
+            "type": "literal",
+            "description": "Trusted PyPI host"
+        },
+        {
+            "key": "GOPROXY",
+            "value": "https://goproxy.cn,direct",
+            "type": "literal",
+            "description": "Go module proxy (goproxy.cn)"
+        },
+        {
+            "key": "RUSTUP_DIST_SERVER",
+            "value": "https://rsproxy.cn",
+            "type": "literal",
+            "description": "Rustup mirror (rsproxy)"
+        },
+        {
+            "key": "RUSTUP_UPDATE_ROOT",
+            "value": "https://rsproxy.cn/rustup",
+            "type": "literal",
+            "description": "Rustup update root"
+        }
+    ]
+}

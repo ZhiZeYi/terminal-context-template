@@ -1,0 +1,43 @@
+{
+    "id": "github-copilot-cli",
+    "name": "GitHub Copilot CLI",
+    "description": "GitHub Copilot CLI and extensions configuration",
+    "category": "AI CLI",
+    "icon": "copilot",
+    "tags": [
+        "copilot",
+        "github",
+        "cli",
+        "vscode"
+    ],
+    "variables": [
+        {
+            "key": "GITHUB_TOKEN",
+            "type": "secretRef",
+            "description": "GitHub personal access token"
+        },
+        {
+            "key": "GITHUB_COPILOT_ENABLE",
+            "value": "true",
+            "type": "literal",
+            "description": "Enable GitHub Copilot"
+        },
+        {
+            "key": "COPILOT_AGENT_VERBOSE",
+            "value": "0",
+            "type": "literal",
+            "description": "Enable verbose logging"
+        },
+        {
+            "key": "GH_COPILOT_WORKSPACE",
+            "type": "literal",
+            "description": "Copilot workspace path"
+        },
+        {
+            "key": "GITHUB_COPILOT_DEBUG",
+            "value": "false",
+            "type": "literal",
+            "description": "Enable Copilot debug mode"
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+{
+    "id": "payment-services",
+    "name": "Payment Services",
+    "description": "Payment processing services configuration",
+    "category": "Services",
+    "icon": "credit-card",
+    "tags": [
+        "stripe",
+        "paypal",
+        "payment",
+        "billing"
+    ],
+    "variables": [
+        {
+            "key": "STRIPE_SECRET_KEY",
+            "type": "secretRef",
+            "description": "Stripe secret key"
+        },
+        {
+            "key": "STRIPE_PUBLISHABLE_KEY",
+            "type": "literal",
+            "description": "Stripe publishable key"
+        },
+        {
+            "key": "STRIPE_WEBHOOK_SECRET",
+            "type": "secretRef",
+            "description": "Stripe webhook secret"
+        },
+        {
+            "key": "PAYPAL_CLIENT_ID",
+            "type": "literal",
+            "description": "PayPal client ID"
+        },
+        {
+            "key": "PAYPAL_CLIENT_SECRET",
+            "type": "secretRef",
+            "description": "PayPal client secret"
+        },
+        {
+            "key": "PAYPAL_MODE",
+            "value": "sandbox",
+            "type": "literal",
+            "description": "PayPal mode (sandbox/live)"
+        }
+    ]
+}

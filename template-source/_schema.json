@@ -1,0 +1,71 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Profile Template Fragment",
+    "description": "Schema for individual profile template fragment files",
+    "type": "object",
+    "required": [
+        "id",
+        "name",
+        "description",
+        "category",
+        "variables"
+    ],
+    "properties": {
+        "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "Unique identifier (lowercase, hyphens allowed)"
+        },
+        "name": {
+            "type": "string",
+            "description": "Display name for the template"
+        },
+        "description": {
+            "type": "string",
+            "description": "Brief description of the template purpose"
+        },
+        "category": {
+            "type": "string",
+            "description": "Category grouping (e.g., Development, Cloud, DevOps)"
+        },
+        "icon": {
+            "type": "string",
+            "description": "VS Code icon identifier"
+        },
+        "tags": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Searchable tags"
+        },
+        "variables": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "key",
+                    "type"
+                ],
+                "properties": {
+                    "key": {
+                        "type": "string"
+                    },
+                    "value": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "literal",
+                            "secretRef"
+                        ]
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

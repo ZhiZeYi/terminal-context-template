@@ -1,0 +1,57 @@
+{
+    "id": "cline-vscode",
+    "name": "Cline (Claude Dev)",
+    "description": "Cline VS Code extension environment configuration",
+    "category": "AI CLI",
+    "icon": "extensions",
+    "tags": [
+        "cline",
+        "claude-dev",
+        "vscode",
+        "extension"
+    ],
+    "variables": [
+        {
+            "key": "ANTHROPIC_API_KEY",
+            "type": "secretRef",
+            "description": "Anthropic API key for Cline"
+        },
+        {
+            "key": "OPENAI_API_KEY",
+            "type": "secretRef",
+            "description": "OpenAI API key for Cline"
+        },
+        {
+            "key": "OPENROUTER_API_KEY",
+            "type": "secretRef",
+            "description": "OpenRouter API key for Cline"
+        },
+        {
+            "key": "BEDROCK_ACCESS_KEY_ID",
+            "type": "secretRef",
+            "description": "AWS Bedrock access key"
+        },
+        {
+            "key": "BEDROCK_SECRET_ACCESS_KEY",
+            "type": "secretRef",
+            "description": "AWS Bedrock secret key"
+        },
+        {
+            "key": "BEDROCK_REGION",
+            "value": "us-east-1",
+            "type": "literal",
+            "description": "AWS Bedrock region"
+        },
+        {
+            "key": "VERTEX_PROJECT_ID",
+            "type": "literal",
+            "description": "Google Vertex AI project ID"
+        },
+        {
+            "key": "VERTEX_REGION",
+            "value": "us-central1",
+            "type": "literal",
+            "description": "Google Vertex AI region"
+        }
+    ]
+}

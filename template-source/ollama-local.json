@@ -1,0 +1,56 @@
+{
+    "id": "ollama-local",
+    "name": "Ollama Local",
+    "description": "Ollama local LLM runner configuration",
+    "category": "AI CLI",
+    "icon": "server-process",
+    "tags": [
+        "ollama",
+        "local",
+        "self-hosted",
+        "llm"
+    ],
+    "variables": [
+        {
+            "key": "OLLAMA_HOST",
+            "value": "http://localhost:11434",
+            "type": "literal",
+            "description": "Ollama server host"
+        },
+        {
+            "key": "OLLAMA_MODELS",
+            "type": "literal",
+            "description": "Ollama models directory"
+        },
+        {
+            "key": "OLLAMA_KEEP_ALIVE",
+            "value": "5m",
+            "type": "literal",
+            "description": "Model keep-alive duration"
+        },
+        {
+            "key": "OLLAMA_NUM_PARALLEL",
+            "value": "1",
+            "type": "literal",
+            "description": "Number of parallel requests"
+        },
+        {
+            "key": "OLLAMA_MAX_LOADED_MODELS",
+            "value": "1",
+            "type": "literal",
+            "description": "Maximum loaded models"
+        },
+        {
+            "key": "OLLAMA_DEBUG",
+            "value": "0",
+            "type": "literal",
+            "description": "Enable debug logging"
+        },
+        {
+            "key": "OLLAMA_ORIGINS",
+            "value": "*",
+            "type": "literal",
+            "description": "Allowed CORS origins"
+        }
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    "id": "monitoring",
+    "name": "Monitoring & APM",
+    "description": "Application monitoring and error tracking services",
+    "category": "DevOps",
+    "icon": "graph-line",
+    "tags": [
+        "monitoring",
+        "sentry",
+        "datadog",
+        "apm"
+    ],
+    "variables": [
+        {
+            "key": "SENTRY_DSN",
+            "type": "secretRef",
+            "description": "Sentry error tracking DSN"
+        },
+        {
+            "key": "SENTRY_ENVIRONMENT",
+            "value": "development",
+            "type": "literal",
+            "description": "Sentry environment name"
+        },
+        {
+            "key": "DD_API_KEY",
+            "type": "secretRef",
+            "description": "Datadog API key"
+        },
+        {
+            "key": "DD_ENV",
+            "value": "development",
+            "type": "literal",
+            "description": "Datadog environment"
+        },
+        {
+            "key": "DD_SERVICE",
+            "type": "literal",
+            "description": "Datadog service name"
+        },
+        {
+            "key": "NEW_RELIC_LICENSE_KEY",
+            "type": "secretRef",
+            "description": "New Relic license key"
+        },
+        {
+            "key": "OTEL_EXPORTER_OTLP_ENDPOINT",
+            "type": "literal",
+            "description": "OpenTelemetry endpoint"
+        },
+        {
+            "key": "OTEL_SERVICE_NAME",
+            "type": "literal",
+            "description": "OpenTelemetry service name"
+        }
+    ]
+}

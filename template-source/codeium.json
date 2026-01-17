@@ -1,0 +1,30 @@
+{
+    "id": "codeium",
+    "name": "Codeium",
+    "description": "Codeium AI code completion configuration",
+    "category": "AI CLI",
+    "icon": "lightbulb",
+    "tags": [
+        "codeium",
+        "completion",
+        "ai"
+    ],
+    "variables": [
+        {
+            "key": "CODEIUM_API_KEY",
+            "type": "secretRef",
+            "description": "Codeium API key"
+        },
+        {
+            "key": "CODEIUM_ENTERPRISE_MODE",
+            "value": "false",
+            "type": "literal",
+            "description": "Enable enterprise mode"
+        },
+        {
+            "key": "CODEIUM_PORTAL_URL",
+            "type": "literal",
+            "description": "Enterprise portal URL"
+        }
+    ]
+}

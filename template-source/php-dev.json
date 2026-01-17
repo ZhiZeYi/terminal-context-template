@@ -1,0 +1,49 @@
+{
+    "id": "php-dev",
+    "name": "PHP Development",
+    "description": "PHP and Laravel development configuration",
+    "category": "Development",
+    "icon": "symbol-misc",
+    "tags": [
+        "php",
+        "laravel",
+        "composer",
+        "symfony"
+    ],
+    "variables": [
+        {
+            "key": "PHP_MEMORY_LIMIT",
+            "value": "512M",
+            "type": "literal",
+            "description": "PHP memory limit"
+        },
+        {
+            "key": "COMPOSER_HOME",
+            "type": "literal",
+            "description": "Composer home directory"
+        },
+        {
+            "key": "COMPOSER_NO_INTERACTION",
+            "value": "1",
+            "type": "literal",
+            "description": "Non-interactive mode"
+        },
+        {
+            "key": "APP_ENV",
+            "value": "local",
+            "type": "literal",
+            "description": "Laravel environment"
+        },
+        {
+            "key": "APP_DEBUG",
+            "value": "true",
+            "type": "literal",
+            "description": "Laravel debug mode"
+        },
+        {
+            "key": "APP_KEY",
+            "type": "secretRef",
+            "description": "Laravel application key"
+        }
+    ]
+}

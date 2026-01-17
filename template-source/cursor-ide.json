@@ -1,0 +1,42 @@
+{
+    "id": "cursor-ide",
+    "name": "Cursor IDE",
+    "description": "Cursor AI IDE environment configuration",
+    "category": "AI CLI",
+    "icon": "edit",
+    "tags": [
+        "cursor",
+        "ide",
+        "ai",
+        "editor"
+    ],
+    "variables": [
+        {
+            "key": "CURSOR_API_KEY",
+            "type": "secretRef",
+            "description": "Cursor API key (for enterprise)"
+        },
+        {
+            "key": "OPENAI_API_KEY",
+            "type": "secretRef",
+            "description": "OpenAI API key for Cursor"
+        },
+        {
+            "key": "ANTHROPIC_API_KEY",
+            "type": "secretRef",
+            "description": "Anthropic API key for Cursor"
+        },
+        {
+            "key": "CURSOR_CHANNEL",
+            "value": "stable",
+            "type": "literal",
+            "description": "Cursor update channel (stable/insider)"
+        },
+        {
+            "key": "CURSOR_TELEMETRY",
+            "value": "1",
+            "type": "literal",
+            "description": "Enable Cursor telemetry"
+        }
+    ]
+}

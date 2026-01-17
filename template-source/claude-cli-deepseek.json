@@ -1,0 +1,55 @@
+{
+    "id": "claude-cli-deepseek",
+    "name": "Claudecode/deepseek / Anthropic (Claude) CLI",
+    "description": "Environment variables for using claudecode-style CLI with Anthropic or Deepseek Anthropic proxy",
+    "category": "AI",
+    "icon": "terminal",
+    "tags": [
+        "claudecode",
+        "anthropic",
+        "deepseek",
+        "cli"
+    ],
+    "variables": [
+        {
+            "key": "ANTHROPIC_AUTH_TOKEN",
+            "type": "secretRef",
+            "description": "Anthropic API key (used by claudecode / CLI). Do NOT commit the real key."
+        },
+        {
+            "key": "ANTHROPIC_BASE_URL",
+            "value": "https://api.deepseek.com/anthropic",
+            "type": "literal",
+            "description": "Base URL for Anthropic or proxy endpoint (e.g., Deepseek). Adjust to provider. https://api.deepseek.com/anthropic "
+        },
+        {
+            "key": "ANTHROPIC_MODEL",
+            "value": "deepseek-chat",
+            "type": "literal",
+            "description": "Default model to use with the CLI (e.g., deepseek-chat, claude-2)"
+        },
+        {
+            "key": "ANTHROPIC_SMALL_FAST_MODEL",
+            "value": "deepseek-small",
+            "type": "literal",
+            "description": "Optional smaller/faster model name"
+        },
+        {
+            "key": "CLAUDECODE_CONFIG_PATH",
+            "value": "~/.config/claudecode/config.yaml",
+            "type": "literal",
+            "description": "Path to local claudecode CLI config (optional)"
+        },
+        {
+            "key": "CLAUDECODE_PROFILE",
+            "type": "literal",
+            "description": "Optional claudecode profile name to select (if CLI supports profiles)"
+        },
+        {
+            "key": "CLAUDECODE_DEFAULT_TIMEOUT_MS",
+            "value": "30000",
+            "type": "literal",
+            "description": "Default request timeout for claudecode CLI (milliseconds)"
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "id": "nodejs-dev",
+    "name": "Node.js Development",
+    "description": "Node.js and NPM configuration for JavaScript development",
+    "category": "Development",
+    "icon": "symbol-method",
+    "tags": [
+        "nodejs",
+        "npm",
+        "javascript",
+        "typescript"
+    ],
+    "variables": [
+        {
+            "key": "NODE_ENV",
+            "value": "development",
+            "type": "literal",
+            "description": "Node environment (development/production/test)"
+        },
+        {
+            "key": "NODE_OPTIONS",
+            "value": "--max-old-space-size=4096",
+            "type": "literal",
+            "description": "Node.js runtime options"
+        },
+        {
+            "key": "NPM_TOKEN",
+            "type": "secretRef",
+            "description": "NPM authentication token"
+        },
+        {
+            "key": "NPM_CONFIG_REGISTRY",
+            "value": "https://registry.npmjs.org/",
+            "type": "literal",
+            "description": "NPM registry URL"
+        },
+        {
+            "key": "DEBUG",
+            "value": "*",
+            "type": "literal",
+            "description": "Debug namespace pattern"
+        }
+    ]
+}

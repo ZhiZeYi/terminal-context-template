@@ -1,0 +1,47 @@
+{
+    "id": "database",
+    "name": "Database Connection",
+    "description": "Database connection and authentication configuration",
+    "category": "Database",
+    "icon": "database",
+    "tags": [
+        "database",
+        "sql",
+        "postgresql",
+        "mysql"
+    ],
+    "variables": [
+        {
+            "key": "DATABASE_URL",
+            "type": "secretRef",
+            "description": "Full database connection string"
+        },
+        {
+            "key": "DB_HOST",
+            "value": "localhost",
+            "type": "literal",
+            "description": "Database server hostname"
+        },
+        {
+            "key": "DB_PORT",
+            "value": "5432",
+            "type": "literal",
+            "description": "Database server port"
+        },
+        {
+            "key": "DB_NAME",
+            "type": "literal",
+            "description": "Database name"
+        },
+        {
+            "key": "DB_USER",
+            "type": "literal",
+            "description": "Database username"
+        },
+        {
+            "key": "DB_PASSWORD",
+            "type": "secretRef",
+            "description": "Database password"
+        }
+    ]
+}

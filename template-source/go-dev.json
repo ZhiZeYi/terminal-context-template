@@ -1,0 +1,46 @@
+{
+    "id": "go-dev",
+    "name": "Go Development",
+    "description": "Go language development environment configuration",
+    "category": "Development",
+    "icon": "symbol-method",
+    "tags": [
+        "go",
+        "golang",
+        "cgo"
+    ],
+    "variables": [
+        {
+            "key": "GOPATH",
+            "type": "literal",
+            "description": "Go workspace path"
+        },
+        {
+            "key": "GOROOT",
+            "type": "literal",
+            "description": "Go installation directory"
+        },
+        {
+            "key": "GOBIN",
+            "type": "literal",
+            "description": "Go binary directory"
+        },
+        {
+            "key": "GOPROXY",
+            "value": "https://proxy.golang.org,direct",
+            "type": "literal",
+            "description": "Go module proxy URL"
+        },
+        {
+            "key": "GOPRIVATE",
+            "type": "literal",
+            "description": "Private module patterns"
+        },
+        {
+            "key": "CGO_ENABLED",
+            "value": "1",
+            "type": "literal",
+            "description": "Enable CGO"
+        }
+    ]
+}

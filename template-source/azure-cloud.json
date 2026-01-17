@@ -1,0 +1,45 @@
+{
+    "id": "azure-cloud",
+    "name": "Azure Cloud",
+    "description": "Microsoft Azure cloud services configuration",
+    "category": "Cloud",
+    "icon": "cloud",
+    "tags": [
+        "azure",
+        "cloud",
+        "microsoft"
+    ],
+    "variables": [
+        {
+            "key": "AZURE_SUBSCRIPTION_ID",
+            "type": "literal",
+            "description": "Azure subscription ID"
+        },
+        {
+            "key": "AZURE_TENANT_ID",
+            "type": "literal",
+            "description": "Azure tenant ID"
+        },
+        {
+            "key": "AZURE_CLIENT_ID",
+            "type": "literal",
+            "description": "Azure client/app ID"
+        },
+        {
+            "key": "AZURE_CLIENT_SECRET",
+            "type": "secretRef",
+            "description": "Azure client secret"
+        },
+        {
+            "key": "AZURE_DEFAULTS_LOCATION",
+            "value": "eastus",
+            "type": "literal",
+            "description": "Default Azure location"
+        },
+        {
+            "key": "AZURE_DEFAULTS_GROUP",
+            "type": "literal",
+            "description": "Default resource group"
+        }
+    ]
+}

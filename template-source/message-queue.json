@@ -1,0 +1,54 @@
+{
+    "id": "message-queue",
+    "name": "Message Queues",
+    "description": "Message brokers and queue services configuration",
+    "category": "Services",
+    "icon": "symbol-event",
+    "tags": [
+        "rabbitmq",
+        "kafka",
+        "redis",
+        "queue"
+    ],
+    "variables": [
+        {
+            "key": "RABBITMQ_HOST",
+            "value": "localhost",
+            "type": "literal",
+            "description": "RabbitMQ host"
+        },
+        {
+            "key": "RABBITMQ_PORT",
+            "value": "5672",
+            "type": "literal",
+            "description": "RabbitMQ port"
+        },
+        {
+            "key": "RABBITMQ_USER",
+            "value": "guest",
+            "type": "literal",
+            "description": "RabbitMQ username"
+        },
+        {
+            "key": "RABBITMQ_PASSWORD",
+            "type": "secretRef",
+            "description": "RabbitMQ password"
+        },
+        {
+            "key": "KAFKA_BOOTSTRAP_SERVERS",
+            "value": "localhost:9092",
+            "type": "literal",
+            "description": "Kafka bootstrap servers"
+        },
+        {
+            "key": "CELERY_BROKER_URL",
+            "type": "secretRef",
+            "description": "Celery broker URL"
+        },
+        {
+            "key": "CELERY_RESULT_BACKEND",
+            "type": "literal",
+            "description": "Celery result backend"
+        }
+    ]
+}

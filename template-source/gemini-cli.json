@@ -1,0 +1,47 @@
+{
+    "id": "gemini-cli",
+    "name": "Gemini CLI",
+    "description": "Google Gemini CLI and AI Studio configuration",
+    "category": "AI CLI",
+    "icon": "sparkle",
+    "tags": [
+        "gemini",
+        "google",
+        "cli",
+        "ai-studio"
+    ],
+    "variables": [
+        {
+            "key": "GEMINI_API_KEY",
+            "type": "secretRef",
+            "description": "Google Gemini API key"
+        },
+        {
+            "key": "GOOGLE_AI_API_KEY",
+            "type": "secretRef",
+            "description": "Google AI API key (alternate)"
+        },
+        {
+            "key": "GEMINI_MODEL",
+            "value": "gemini-2.0-flash",
+            "type": "literal",
+            "description": "Default Gemini model"
+        },
+        {
+            "key": "GOOGLE_APPLICATION_CREDENTIALS",
+            "type": "literal",
+            "description": "Service account key path"
+        },
+        {
+            "key": "GOOGLE_CLOUD_PROJECT",
+            "type": "literal",
+            "description": "GCP project ID for Vertex AI"
+        },
+        {
+            "key": "GEMINI_SAFETY_SETTINGS",
+            "value": "default",
+            "type": "literal",
+            "description": "Safety filter settings"
+        }
+    ]
+}

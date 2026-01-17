@@ -1,0 +1,71 @@
+{
+    "id": "ai-extended",
+    "name": "AI Extended",
+    "description": "Extended AI services including vector databases and specialized providers",
+    "category": "AI",
+    "icon": "hubot",
+    "tags": [
+        "ai",
+        "vector",
+        "langchain",
+        "embeddings"
+    ],
+    "variables": [
+        {
+            "key": "MISTRAL_API_KEY",
+            "type": "secretRef",
+            "description": "Mistral AI API key"
+        },
+        {
+            "key": "GROQ_API_KEY",
+            "type": "secretRef",
+            "description": "Groq API key"
+        },
+        {
+            "key": "TOGETHER_API_KEY",
+            "type": "secretRef",
+            "description": "Together AI API key"
+        },
+        {
+            "key": "DEEPSEEK_API_KEY",
+            "type": "secretRef",
+            "description": "DeepSeek API key"
+        },
+        {
+            "key": "REPLICATE_API_TOKEN",
+            "type": "secretRef",
+            "description": "Replicate API token"
+        },
+        {
+            "key": "COHERE_API_KEY",
+            "type": "secretRef",
+            "description": "Cohere API key"
+        },
+        {
+            "key": "OLLAMA_HOST",
+            "value": "http://localhost:11434",
+            "type": "literal",
+            "description": "Ollama server host"
+        },
+        {
+            "key": "LANGCHAIN_API_KEY",
+            "type": "secretRef",
+            "description": "LangChain API key"
+        },
+        {
+            "key": "LANGCHAIN_PROJECT",
+            "type": "literal",
+            "description": "LangChain project name"
+        },
+        {
+            "key": "PINECONE_API_KEY",
+            "type": "secretRef",
+            "description": "Pinecone vector DB API key"
+        },
+        {
+            "key": "QDRANT_API_KEY",
+            "type": "secretRef",
+            "description": "Qdrant vector DB API key"
+        }
+    ]
+}

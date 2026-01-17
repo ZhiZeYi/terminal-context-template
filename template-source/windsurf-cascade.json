@@ -1,0 +1,36 @@
+{
+    "id": "windsurf-cascade",
+    "name": "Windsurf/Cascade",
+    "description": "Codeium Windsurf IDE and Cascade configuration",
+    "category": "AI CLI",
+    "icon": "edit",
+    "tags": [
+        "windsurf",
+        "cascade",
+        "codeium",
+        "ide"
+    ],
+    "variables": [
+        {
+            "key": "CODEIUM_API_KEY",
+            "type": "secretRef",
+            "description": "Codeium API key"
+        },
+        {
+            "key": "OPENAI_API_KEY",
+            "type": "secretRef",
+            "description": "OpenAI API key for custom models"
+        },
+        {
+            "key": "ANTHROPIC_API_KEY",
+            "type": "secretRef",
+            "description": "Anthropic API key for custom models"
+        },
+        {
+            "key": "WINDSURF_TELEMETRY",
+            "value": "1",
+            "type": "literal",
+            "description": "Enable Windsurf telemetry"
+        }
+    ]
+}

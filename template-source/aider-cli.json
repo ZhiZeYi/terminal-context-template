@@ -1,0 +1,70 @@
+{
+    "id": "aider-cli",
+    "name": "Aider CLI",
+    "description": "Aider AI pair programming CLI configuration",
+    "category": "AI CLI",
+    "icon": "terminal",
+    "tags": [
+        "aider",
+        "cli",
+        "pair-programming",
+        "ai"
+    ],
+    "variables": [
+        {
+            "key": "OPENAI_API_KEY",
+            "type": "secretRef",
+            "description": "OpenAI API key for Aider"
+        },
+        {
+            "key": "ANTHROPIC_API_KEY",
+            "type": "secretRef",
+            "description": "Anthropic API key for Aider"
+        },
+        {
+            "key": "AIDER_MODEL",
+            "value": "gpt-4o",
+            "type": "literal",
+            "description": "Default Aider model"
+        },
+        {
+            "key": "AIDER_DARK_MODE",
+            "value": "true",
+            "type": "literal",
+            "description": "Enable dark mode"
+        },
+        {
+            "key": "AIDER_AUTO_COMMITS",
+            "value": "true",
+            "type": "literal",
+            "description": "Auto commit changes"
+        },
+        {
+            "key": "AIDER_GIT_ROOT",
+            "type": "literal",
+            "description": "Git repository root"
+        },
+        {
+            "key": "AIDER_VIM",
+            "value": "false",
+            "type": "literal",
+            "description": "Enable vim keybindings"
+        },
+        {
+            "key": "AIDER_EDIT_FORMAT",
+            "value": "diff",
+            "type": "literal",
+            "description": "Edit format (diff/whole/udiff)"
+        },
+        {
+            "key": "OPENROUTER_API_KEY",
+            "type": "secretRef",
+            "description": "OpenRouter API key"
+        },
+        {
+            "key": "DEEPSEEK_API_KEY",
+            "type": "secretRef",
+            "description": "DeepSeek API key"
+        }
+    ]
+}

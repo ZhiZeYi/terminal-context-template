@@ -1,0 +1,38 @@
+{
+    "id": "lmstudio",
+    "name": "LM Studio",
+    "description": "LM Studio local model server configuration",
+    "category": "AI CLI",
+    "icon": "server-process",
+    "tags": [
+        "lmstudio",
+        "local",
+        "self-hosted",
+        "llm"
+    ],
+    "variables": [
+        {
+            "key": "LMSTUDIO_API_URL",
+            "value": "http://localhost:1234/v1",
+            "type": "literal",
+            "description": "LM Studio API URL"
+        },
+        {
+            "key": "OPENAI_API_BASE",
+            "value": "http://localhost:1234/v1",
+            "type": "literal",
+            "description": "OpenAI-compatible API base"
+        },
+        {
+            "key": "OPENAI_API_KEY",
+            "value": "lm-studio",
+            "type": "literal",
+            "description": "Placeholder API key for LM Studio"
+        },
+        {
+            "key": "LMSTUDIO_MODEL",
+            "type": "literal",
+            "description": "Default model to load"
+        }
+    ]
+}

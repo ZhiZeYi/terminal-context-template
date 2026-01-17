@@ -1,0 +1,47 @@
+{
+    "id": "openrouter",
+    "name": "OpenRouter",
+    "description": "OpenRouter unified AI API gateway configuration",
+    "category": "AI CLI",
+    "icon": "globe",
+    "tags": [
+        "openrouter",
+        "api-gateway",
+        "unified",
+        "ai"
+    ],
+    "variables": [
+        {
+            "key": "OPENROUTER_API_KEY",
+            "type": "secretRef",
+            "description": "OpenRouter API key"
+        },
+        {
+            "key": "OPENROUTER_BASE_URL",
+            "value": "https://openrouter.ai/api/v1",
+            "type": "literal",
+            "description": "OpenRouter API base URL"
+        },
+        {
+            "key": "OPENROUTER_DEFAULT_MODEL",
+            "value": "anthropic/claude-3.5-sonnet",
+            "type": "literal",
+            "description": "Default model to use"
+        },
+        {
+            "key": "OPENROUTER_SITE_URL",
+            "type": "literal",
+            "description": "Your site URL for rankings"
+        },
+        {
+            "key": "OPENROUTER_SITE_NAME",
+            "type": "literal",
+            "description": "Your site name for rankings"
+        },
+        {
+            "key": "OR_SITE_URL",
+            "type": "literal",
+            "description": "Site URL (short form)"
+        }
+    ]
+}

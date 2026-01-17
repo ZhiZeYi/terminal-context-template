@@ -1,0 +1,61 @@
+{
+    "id": "storage-services",
+    "name": "Storage Services",
+    "description": "Object storage and file services configuration",
+    "category": "Services",
+    "icon": "database",
+    "tags": [
+        "s3",
+        "storage",
+        "minio",
+        "r2"
+    ],
+    "variables": [
+        {
+            "key": "S3_BUCKET",
+            "type": "literal",
+            "description": "S3 bucket name"
+        },
+        {
+            "key": "S3_ENDPOINT",
+            "type": "literal",
+            "description": "S3-compatible endpoint"
+        },
+        {
+            "key": "S3_REGION",
+            "type": "literal",
+            "description": "S3 region"
+        },
+        {
+            "key": "S3_ACCESS_KEY",
+            "type": "secretRef",
+            "description": "S3 access key"
+        },
+        {
+            "key": "S3_SECRET_KEY",
+            "type": "secretRef",
+            "description": "S3 secret key"
+        },
+        {
+            "key": "MINIO_ENDPOINT",
+            "type": "literal",
+            "description": "MinIO endpoint"
+        },
+        {
+            "key": "AZURE_STORAGE_ACCOUNT",
+            "type": "literal",
+            "description": "Azure storage account"
+        },
+        {
+            "key": "AZURE_STORAGE_CONNECTION_STRING",
+            "type": "secretRef",
+            "description": "Azure storage connection string"
+        },
+        {
+            "key": "UPLOAD_DIR",
+            "value": "./uploads",
+            "type": "literal",
+            "description": "Upload directory path"
+        }
+    ]
+}

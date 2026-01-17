@@ -1,0 +1,67 @@
+{
+    "id": "email-sms",
+    "name": "Email & SMS Services",
+    "description": "Email and SMS notification services configuration",
+    "category": "Services",
+    "icon": "mail",
+    "tags": [
+        "email",
+        "sms",
+        "smtp",
+        "sendgrid",
+        "twilio"
+    ],
+    "variables": [
+        {
+            "key": "SMTP_HOST",
+            "type": "literal",
+            "description": "SMTP server host"
+        },
+        {
+            "key": "SMTP_PORT",
+            "value": "587",
+            "type": "literal",
+            "description": "SMTP server port"
+        },
+        {
+            "key": "SMTP_USER",
+            "type": "literal",
+            "description": "SMTP username"
+        },
+        {
+            "key": "SMTP_PASSWORD",
+            "type": "secretRef",
+            "description": "SMTP password"
+        },
+        {
+            "key": "SENDGRID_API_KEY",
+            "type": "secretRef",
+            "description": "SendGrid API key"
+        },
+        {
+            "key": "MAILGUN_API_KEY",
+            "type": "secretRef",
+            "description": "Mailgun API key"
+        },
+        {
+            "key": "RESEND_API_KEY",
+            "type": "secretRef",
+            "description": "Resend API key"
+        },
+        {
+            "key": "TWILIO_ACCOUNT_SID",
+            "type": "literal",
+            "description": "Twilio account SID"
+        },
+        {
+            "key": "TWILIO_AUTH_TOKEN",
+            "type": "secretRef",
+            "description": "Twilio auth token"
+        },
+        {
+            "key": "TWILIO_PHONE_NUMBER",
+            "type": "literal",
+            "description": "Twilio phone number"
+        }
+    ]
+}

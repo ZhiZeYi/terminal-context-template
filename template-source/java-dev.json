@@ -1,0 +1,43 @@
+{
+    "id": "java-dev",
+    "name": "Java Development",
+    "description": "Java and JVM-based languages development configuration",
+    "category": "Development",
+    "icon": "symbol-class",
+    "tags": [
+        "java",
+        "jvm",
+        "maven",
+        "gradle"
+    ],
+    "variables": [
+        {
+            "key": "JAVA_HOME",
+            "type": "literal",
+            "description": "Java installation directory"
+        },
+        {
+            "key": "JAVA_OPTS",
+            "value": "-Xmx2g -Xms512m",
+            "type": "literal",
+            "description": "Java runtime options"
+        },
+        {
+            "key": "MAVEN_OPTS",
+            "value": "-Xmx1g",
+            "type": "literal",
+            "description": "Maven JVM options"
+        },
+        {
+            "key": "GRADLE_OPTS",
+            "value": "-Xmx1g -Dorg.gradle.daemon=true",
+            "type": "literal",
+            "description": "Gradle JVM options"
+        },
+        {
+            "key": "GRADLE_USER_HOME",
+            "type": "literal",
+            "description": "Gradle user home directory"
+        }
+    ]
+}

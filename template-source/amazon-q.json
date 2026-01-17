@@ -1,0 +1,42 @@
+{
+    "id": "amazon-q",
+    "name": "Amazon Q Developer",
+    "description": "Amazon Q Developer (formerly CodeWhisperer) configuration",
+    "category": "AI CLI",
+    "icon": "cloud",
+    "tags": [
+        "amazon-q",
+        "aws",
+        "codewhisperer",
+        "ai"
+    ],
+    "variables": [
+        {
+            "key": "AWS_ACCESS_KEY_ID",
+            "type": "secretRef",
+            "description": "AWS access key ID"
+        },
+        {
+            "key": "AWS_SECRET_ACCESS_KEY",
+            "type": "secretRef",
+            "description": "AWS secret access key"
+        },
+        {
+            "key": "AWS_REGION",
+            "value": "us-east-1",
+            "type": "literal",
+            "description": "AWS region"
+        },
+        {
+            "key": "CODEWHISPERER_TELEMETRY",
+            "value": "1",
+            "type": "literal",
+            "description": "Enable telemetry"
+        },
+        {
+            "key": "Q_DEVELOPER_PROFILE",
+            "type": "literal",
+            "description": "Amazon Q Developer profile"
+        }
+    ]
+}

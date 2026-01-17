@@ -1,0 +1,54 @@
+{
+    "id": "web-framework",
+    "name": "Web Framework",
+    "description": "Common web application framework configuration",
+    "category": "Development",
+    "icon": "browser",
+    "tags": [
+        "web",
+        "http",
+        "server",
+        "api"
+    ],
+    "variables": [
+        {
+            "key": "PORT",
+            "value": "3000",
+            "type": "literal",
+            "description": "Server port number"
+        },
+        {
+            "key": "HOST",
+            "value": "localhost",
+            "type": "literal",
+            "description": "Server host address"
+        },
+        {
+            "key": "BASE_URL",
+            "value": "http://localhost:3000",
+            "type": "literal",
+            "description": "Application base URL"
+        },
+        {
+            "key": "API_URL",
+            "type": "literal",
+            "description": "API endpoint URL"
+        },
+        {
+            "key": "CORS_ORIGIN",
+            "value": "*",
+            "type": "literal",
+            "description": "CORS allowed origins"
+        },
+        {
+            "key": "SESSION_SECRET",
+            "type": "secretRef",
+            "description": "Session secret key"
+        },
+        {
+            "key": "JWT_SECRET",
+            "type": "secretRef",
+            "description": "JWT signing secret"
+        }
+    ]
+}

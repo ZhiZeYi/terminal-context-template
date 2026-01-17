@@ -1,0 +1,60 @@
+{
+    "id": "oauth-providers",
+    "name": "OAuth Providers",
+    "description": "OAuth and social authentication providers",
+    "category": "Security",
+    "icon": "shield",
+    "tags": [
+        "oauth",
+        "auth",
+        "social",
+        "login"
+    ],
+    "variables": [
+        {
+            "key": "AUTH0_DOMAIN",
+            "type": "literal",
+            "description": "Auth0 domain"
+        },
+        {
+            "key": "AUTH0_CLIENT_ID",
+            "type": "literal",
+            "description": "Auth0 client ID"
+        },
+        {
+            "key": "AUTH0_CLIENT_SECRET",
+            "type": "secretRef",
+            "description": "Auth0 client secret"
+        },
+        {
+            "key": "GOOGLE_CLIENT_ID",
+            "type": "literal",
+            "description": "Google OAuth client ID"
+        },
+        {
+            "key": "GOOGLE_CLIENT_SECRET",
+            "type": "secretRef",
+            "description": "Google OAuth client secret"
+        },
+        {
+            "key": "GITHUB_CLIENT_ID",
+            "type": "literal",
+            "description": "GitHub OAuth client ID"
+        },
+        {
+            "key": "GITHUB_CLIENT_SECRET",
+            "type": "secretRef",
+            "description": "GitHub OAuth client secret"
+        },
+        {
+            "key": "DISCORD_CLIENT_ID",
+            "type": "literal",
+            "description": "Discord client ID"
+        },
+        {
+            "key": "DISCORD_CLIENT_SECRET",
+            "type": "secretRef",
+            "description": "Discord client secret"
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "id": "python-dev",
+    "name": "Python Development",
+    "description": "Python environment and package management configuration",
+    "category": "Development",
+    "icon": "symbol-namespace",
+    "tags": [
+        "python",
+        "pip",
+        "conda"
+    ],
+    "variables": [
+        {
+            "key": "PYTHONPATH",
+            "type": "literal",
+            "description": "Python module search path"
+        },
+        {
+            "key": "PYTHONDONTWRITEBYTECODE",
+            "value": "1",
+            "type": "literal",
+            "description": "Prevent .pyc file creation"
+        },
+        {
+            "key": "PYTHONUNBUFFERED",
+            "value": "1",
+            "type": "literal",
+            "description": "Force unbuffered stdout/stderr"
+        },
+        {
+            "key": "PIP_INDEX_URL",
+            "value": "https://pypi.org/simple",
+            "type": "literal",
+            "description": "PyPI index URL"
+        },
+        {
+            "key": "VIRTUAL_ENV",
+            "type": "literal",
+            "description": "Virtual environment path"
+        }
+    ]
+}

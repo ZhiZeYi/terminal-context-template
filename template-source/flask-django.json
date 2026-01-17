@@ -1,0 +1,55 @@
+{
+    "id": "flask-django",
+    "name": "Flask & Django",
+    "description": "Python web frameworks configuration",
+    "category": "Development",
+    "icon": "symbol-namespace",
+    "tags": [
+        "flask",
+        "django",
+        "python",
+        "web"
+    ],
+    "variables": [
+        {
+            "key": "FLASK_APP",
+            "value": "app.py",
+            "type": "literal",
+            "description": "Flask application entry point"
+        },
+        {
+            "key": "FLASK_ENV",
+            "value": "development",
+            "type": "literal",
+            "description": "Flask environment"
+        },
+        {
+            "key": "FLASK_DEBUG",
+            "value": "1",
+            "type": "literal",
+            "description": "Flask debug mode"
+        },
+        {
+            "key": "DJANGO_SETTINGS_MODULE",
+            "type": "literal",
+            "description": "Django settings module"
+        },
+        {
+            "key": "DJANGO_SECRET_KEY",
+            "type": "secretRef",
+            "description": "Django secret key"
+        },
+        {
+            "key": "DJANGO_DEBUG",
+            "value": "True",
+            "type": "literal",
+            "description": "Django debug mode"
+        },
+        {
+            "key": "DJANGO_ALLOWED_HOSTS",
+            "value": "localhost,127.0.0.1",
+            "type": "literal",
+            "description": "Django allowed hosts"
+        }
+    ]
+}

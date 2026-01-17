@@ -1,0 +1,31 @@
+{
+    "id": "kubernetes",
+    "name": "Kubernetes",
+    "description": "Kubernetes cluster configuration",
+    "category": "DevOps",
+    "icon": "server",
+    "tags": [
+        "kubernetes",
+        "k8s",
+        "kubectl"
+    ],
+    "variables": [
+        {
+            "key": "KUBECONFIG",
+            "value": "~/.kube/config",
+            "type": "literal",
+            "description": "Kubernetes config file path"
+        },
+        {
+            "key": "KUBE_CONTEXT",
+            "type": "literal",
+            "description": "Kubernetes context name"
+        },
+        {
+            "key": "KUBE_NAMESPACE",
+            "value": "default",
+            "type": "literal",
+            "description": "Default namespace"
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+{
+    "id": "continue-dev",
+    "name": "Continue Dev",
+    "description": "Continue.dev VS Code/JetBrains extension configuration",
+    "category": "AI CLI",
+    "icon": "symbol-method",
+    "tags": [
+        "continue",
+        "vscode",
+        "jetbrains",
+        "extension"
+    ],
+    "variables": [
+        {
+            "key": "OPENAI_API_KEY",
+            "type": "secretRef",
+            "description": "OpenAI API key"
+        },
+        {
+            "key": "ANTHROPIC_API_KEY",
+            "type": "secretRef",
+            "description": "Anthropic API key"
+        },
+        {
+            "key": "OLLAMA_BASE_URL",
+            "value": "http://localhost:11434",
+            "type": "literal",
+            "description": "Ollama server URL"
+        },
+        {
+            "key": "TOGETHER_API_KEY",
+            "type": "secretRef",
+            "description": "Together AI API key"
+        },
+        {
+            "key": "MISTRAL_API_KEY",
+            "type": "secretRef",
+            "description": "Mistral AI API key"
+        },
+        {
+            "key": "GROQ_API_KEY",
+            "type": "secretRef",
+            "description": "Groq API key"
+        },
+        {
+            "key": "CONTINUE_GLOBAL_DIR",
+            "type": "literal",
+            "description": "Continue config directory"
+        }
+    ]
+}

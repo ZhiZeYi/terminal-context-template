@@ -1,0 +1,43 @@
+{
+    "id": "nextjs-dev",
+    "name": "Next.js Development",
+    "description": "Next.js React framework development configuration",
+    "category": "Development",
+    "icon": "symbol-method",
+    "tags": [
+        "nextjs",
+        "react",
+        "vercel",
+        "ssr"
+    ],
+    "variables": [
+        {
+            "key": "NODE_ENV",
+            "value": "development",
+            "type": "literal",
+            "description": "Node environment"
+        },
+        {
+            "key": "NEXT_PUBLIC_API_URL",
+            "type": "literal",
+            "description": "Public API URL"
+        },
+        {
+            "key": "NEXTAUTH_URL",
+            "value": "http://localhost:3000",
+            "type": "literal",
+            "description": "NextAuth.js URL"
+        },
+        {
+            "key": "NEXTAUTH_SECRET",
+            "type": "secretRef",
+            "description": "NextAuth.js secret"
+        },
+        {
+            "key": "NEXT_TELEMETRY_DISABLED",
+            "value": "1",
+            "type": "literal",
+            "description": "Disable Next.js telemetry"
+        }
+    ]
+}

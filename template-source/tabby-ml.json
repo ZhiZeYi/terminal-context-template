@@ -1,0 +1,37 @@
+{
+    "id": "tabby-ml",
+    "name": "Tabby ML",
+    "description": "Tabby self-hosted AI coding assistant configuration",
+    "category": "AI CLI",
+    "icon": "server",
+    "tags": [
+        "tabby",
+        "self-hosted",
+        "ai",
+        "completion"
+    ],
+    "variables": [
+        {
+            "key": "TABBY_API_ENDPOINT",
+            "value": "http://localhost:8080",
+            "type": "literal",
+            "description": "Tabby server endpoint"
+        },
+        {
+            "key": "TABBY_API_TOKEN",
+            "type": "secretRef",
+            "description": "Tabby API token"
+        },
+        {
+            "key": "TABBY_DISABLE_TELEMETRY",
+            "value": "1",
+            "type": "literal",
+            "description": "Disable Tabby telemetry"
+        },
+        {
+            "key": "TABBY_MODEL",
+            "type": "literal",
+            "description": "Tabby model name"
+        }
+    ]
+}

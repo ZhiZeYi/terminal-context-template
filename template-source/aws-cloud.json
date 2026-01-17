@@ -1,0 +1,41 @@
+{
+    "id": "aws-cloud",
+    "name": "AWS Cloud",
+    "description": "Amazon Web Services credentials and configuration",
+    "category": "Cloud",
+    "icon": "cloud",
+    "tags": [
+        "aws",
+        "cloud",
+        "amazon"
+    ],
+    "variables": [
+        {
+            "key": "AWS_ACCESS_KEY_ID",
+            "type": "secretRef",
+            "description": "AWS access key ID"
+        },
+        {
+            "key": "AWS_SECRET_ACCESS_KEY",
+            "type": "secretRef",
+            "description": "AWS secret access key"
+        },
+        {
+            "key": "AWS_DEFAULT_REGION",
+            "value": "us-east-1",
+            "type": "literal",
+            "description": "Default AWS region"
+        },
+        {
+            "key": "AWS_PROFILE",
+            "value": "default",
+            "type": "literal",
+            "description": "AWS CLI profile name"
+        },
+        {
+            "key": "AWS_SESSION_TOKEN",
+            "type": "secretRef",
+            "description": "AWS session token (for temporary credentials)"
+        }
+    ]
+}
