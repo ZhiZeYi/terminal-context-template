@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCM Template Viewer - Terminal Context Manager</title>
+    <meta name="description" content="Browse and search Terminal Context Manager templates and environment variables">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4f46e5;
+            --accent: #22d3ee;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+            --border: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --glass-bg: rgba(30, 41, 59, 0.8);
+            --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Animated background */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(34, 211, 238, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 40% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--glass-bg);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-light);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* Tab Navigation */
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            background: var(--bg-card);
+            padding: 0.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            width: fit-content;
+        }
+
+        .tab-btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-primary);
+            background: var(--bg-card-hover);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Search & Filter */
+        .search-section {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 1rem 1.5rem 1rem 3rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        .search-box input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-box::before {
+            content: "🔍";
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.1rem;
+        }
+
+        .filter-dropdown {
+            position: relative;
+        }
+
+        .filter-dropdown select {
+            appearance: none;
+            padding: 1rem 3rem 1rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-dropdown select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .filter-dropdown::after {
+            content: "▼";
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        /* Content Panels */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Template Cards Grid */
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .template-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .template-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.2);
+        }
+
+        .template-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .template-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .template-info h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .template-info .category {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .template-body {
+            padding: 1.5rem;
+        }
+
+        .template-description {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .template-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            padding: 0.25rem 0.75rem;
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--primary-light);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .variable-count {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card-hover);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .variable-count strong {
+            color: var(--accent);
+        }
+
+        /* Variables Table */
+        .variables-section {
+            margin-top: 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .variables-section.expanded {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .variables-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .variables-table th,
+        .variables-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .variables-table th {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .var-key {
+            font-family: 'Fira Code', 'Consolas', monospace;
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .var-value {
+            font-family: 'Fira Code', 'Consolas', monospace;
+            color: var(--success);
+            font-size: 0.85rem;
+        }
+
+        .var-type {
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .var-type.literal {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--success);
+        }
+
+        .var-type.secretRef {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--danger);
+        }
+
+        /* Environment Dictionary Section */
+        .env-categories {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .env-category {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .env-category-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(34, 211, 238, 0.05));
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .env-category-header:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(34, 211, 238, 0.1));
+        }
+
+        .env-category-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .env-category-title h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .env-category-title .count {
+            padding: 0.25rem 0.75rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .env-category-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .expand-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .env-category.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .env-variables-list {
+            display: none;
+            padding: 1rem;
+        }
+
+        .env-category.expanded .env-variables-list {
+            display: block;
+        }
+
+        .env-var-item {
+            display: grid;
+            grid-template-columns: 200px 1fr auto;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            transition: background 0.2s ease;
+            align-items: center;
+        }
+
+        .env-var-item:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .env-var-key {
+            font-family: 'Fira Code', 'Consolas', monospace;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .env-var-desc {
+            color: var(--text-secondary);
+        }
+
+        .env-var-platforms {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .platform-badge {
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .platform-badge.windows {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--primary-light);
+        }
+
+        .platform-badge.linux {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--success);
+        }
+
+        .platform-badge.macos {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--warning);
+        }
+
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
+        }
+
+        .no-results svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 4rem;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Evaluation Panel */
+        .evaluation-panel {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .evaluation-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .eval-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .eval-item {
+            background: var(--bg-card-hover);
+            padding: 1.25rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .eval-item.success {
+            border-left-color: var(--success);
+        }
+
+        .eval-item.warning {
+            border-left-color: var(--warning);
+        }
+
+        .eval-item.info {
+            border-left-color: var(--accent);
+        }
+
+        .eval-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .eval-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .eval-item.success .eval-value {
+            color: var(--success);
+        }
+
+        .eval-item.warning .eval-value {
+            color: var(--warning);
+        }
+
+        .eval-item.info .eval-value {
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--primary-light);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .templates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-section {
+                flex-direction: column;
+            }
+
+            .search-box {
+                min-width: 100%;
+            }
+
+            .stats-bar {
+                gap: 1rem;
+            }
+
+            .stat-item {
+                padding: 0.5rem 1rem;
+            }
+
+            .env-var-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-pattern"></div>
+
+    <div class="container">
+        <header>
+            <h1 class="logo">🖥️ TCM Template Viewer</h1>
+            <p class="subtitle">Terminal Context Manager - Template & Environment Variable Dictionary Browser</p>
+
+            <div class="stats-bar" id="statsBar">
+                <div class="stat-item">
+                    <span class="stat-value" id="templateCount">-</span>
+                    <span class="stat-label">Templates</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="categoryCount">-</span>
+                    <span class="stat-label">Categories</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="envVarCount">-</span>
+                    <span class="stat-label">Env Variables</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="totalVarCount">-</span>
+                    <span class="stat-label">Template Variables</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="templates">📦 Templates</button>
+            <button class="tab-btn" data-tab="env">📚 Env Dictionary</button>
+            <button class="tab-btn" data-tab="evaluation">📊 Evaluation</button>
+        </div>
+
+        <!-- Templates Tab -->
+        <div class="tab-content active" id="templates-tab">
+            <div class="search-section">
+                <div class="search-box">
+                    <input type="text" id="templateSearch" placeholder="Search template name, description or tags...">
+                </div>
+                <div class="filter-dropdown">
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="templates-grid" id="templatesGrid">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading template data...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Environment Variables Tab -->
+        <div class="tab-content" id="env-tab">
+            <div class="search-section">
+                <div class="search-box">
+                    <input type="text" id="envSearch" placeholder="Search environment variable name or description...">
+                </div>
+                <div class="filter-dropdown">
+                    <select id="platformFilter">
+                        <option value="">All Platforms</option>
+                        <option value="windows">Windows</option>
+                        <option value="linux">Linux</option>
+                        <option value="macos">macOS</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="env-categories" id="envCategories">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading environment variable data...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evaluation Tab -->
+        <div class="tab-content" id="evaluation-tab">
+            <div class="evaluation-panel">
+                <h2 class="evaluation-title">📊 Data Quality Evaluation Report</h2>
+                <div class="eval-grid" id="evalGrid">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Analyzing data...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="evaluation-panel" style="margin-top: 1.5rem;">
+                <h2 class="evaluation-title">💡 Improvement Suggestions</h2>
+                <div id="suggestions"></div>
+            </div>
+        </div>
+
+        <footer>
+            <p>TCM Template Viewer | Data Source: <a href="https://github.com/ZhiZeYi/terminal-context-template"
+                    target="_blank">terminal-context-template</a></p>
+            <p style="margin-top: 0.5rem;">Last Updated: <span id="lastUpdated">-</span></p>
+        </footer>
+    </div>
+
+    <script>
+        // Global data
+        let profileData = null;
+        let envData = null;
+
+        // Icon mapping for templates
+        const iconMap = {
+            'symbol-interface': '🔷',
+            'symbol-namespace': '📦',
+            'git-branch': '🔀',
+            'symbol-method': '⚙️',
+            'symbol-class': '☕',
+            'symbol-misc': '🐘',
+            'symbol-struct': '🦀',
+            'browser': '🌐',
+            'hubot': '🤖',
+            'terminal': '💻',
+            'cloud': '☁️',
+            'database': '🗄️',
+            'ruby': '💎',
+            'lock': '🔒',
+            'server': '🖥️',
+            'package': '📦',
+            'key': '🔑',
+            'default': '📋'
+        };
+
+        // Load data
+        async function loadData() {
+            try {
+                const [profileRes, envRes] = await Promise.all([
+                    fetch('templates/profile.json'),
+                    fetch('templates/env.json')
+                ]);
+
+                if (!profileRes.ok || !envRes.ok) {
+                    throw new Error('Failed to load data');
+                }
+
+                profileData = await profileRes.json();
+                envData = await envRes.json();
+
+                renderStats();
+                renderTemplates();
+                renderEnvCategories();
+                renderEvaluation();
+                populateFilters();
+
+                document.getElementById('lastUpdated').textContent = profileData.lastUpdated || envData.lastUpdated || '-';
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('templatesGrid').innerHTML = `
+                    <div class="no-results">
+                        <p>⚠️ Failed to load data</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Please ensure templates/profile.json and templates/env.json files exist</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Render statistics
+        function renderStats() {
+            const templates = profileData?.templates || [];
+            const envCategories = envData?.categories || [];
+
+            // Count unique categories from templates
+            const templateCategories = [...new Set(templates.map(t => t.category))];
+
+            // Count total template variables
+            const totalTemplateVars = templates.reduce((sum, t) => sum + (t.variables?.length || 0), 0);
+
+            // Count total env variables
+            const totalEnvVars = envCategories.reduce((sum, c) => sum + (c.variables?.length || 0), 0);
+
+            document.getElementById('templateCount').textContent = templates.length;
+            document.getElementById('categoryCount').textContent = templateCategories.length + envCategories.length;
+            document.getElementById('envVarCount').textContent = totalEnvVars;
+            document.getElementById('totalVarCount').textContent = totalTemplateVars;
+        }
+
+        // Populate filter dropdowns
+        function populateFilters() {
+            const templates = profileData?.templates || [];
+            const categories = [...new Set(templates.map(t => t.category))];
+
+            const select = document.getElementById('categoryFilter');
+            categories.forEach(cat => {
+                const option = document.createElement('option');
+                option.value = cat;
+                option.textContent = cat;
+                select.appendChild(option);
+            });
+        }
+
+        // Render templates
+        function renderTemplates(filter = '', category = '') {
+            const templates = profileData?.templates || [];
+            const grid = document.getElementById('templatesGrid');
+
+            const filtered = templates.filter(t => {
+                const matchesSearch = filter === '' ||
+                    t.name.toLowerCase().includes(filter.toLowerCase()) ||
+                    t.description.toLowerCase().includes(filter.toLowerCase()) ||
+                    (t.tags || []).some(tag => tag.toLowerCase().includes(filter.toLowerCase()));
+                const matchesCategory = category === '' || t.category === category;
+                return matchesSearch && matchesCategory;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="no-results" style="grid-column: 1 / -1;">
+                        <p>🔍 No matching templates found</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Try other search keywords</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(template => `
+                <div class="template-card" data-id="${template.id}">
+                    <div class="template-header">
+                        <div class="template-icon">${iconMap[template.icon] || iconMap.default}</div>
+                        <div class="template-info">
+                            <h3>${template.name}</h3>
+                            <span class="category">${template.category}</span>
+                        </div>
+                    </div>
+                    <div class="template-body">
+                        <p class="template-description">${template.description}</p>
+                        <div class="template-tags">
+                            ${(template.tags || []).map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                        <div class="variable-count">
+                            📝 <strong>${template.variables?.length || 0}</strong> environment variables
+                        </div>
+                        <div class="variables-section" id="vars-${template.id}">
+                            <table class="variables-table">
+                                <thead>
+                                    <tr>
+                                        <th>Variable</th>
+                                        <th>Default</th>
+                                        <th>Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${(template.variables || []).map(v => `
+                                        <tr>
+                                            <td class="var-key">${v.key}</td>
+                                            <td class="var-value">${v.value || '-'}</td>
+                                            <td><span class="var-type ${v.type}">${v.type}</span></td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Add click handlers for expanding
+            document.querySelectorAll('.template-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const varsSection = card.querySelector('.variables-section');
+                    varsSection.classList.toggle('expanded');
+                });
+            });
+        }
+
+        // Render environment categories
+        function renderEnvCategories(filter = '', platform = '') {
+            const categories = envData?.categories || [];
+            const container = document.getElementById('envCategories');
+
+            if (categories.length === 0) {
+                container.innerHTML = `
+                    <div class="no-results">
+                        <p>📭 No environment variable data</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const filteredCategories = categories.map(cat => {
+                const filteredVars = (cat.variables || []).filter(v => {
+                    const matchesSearch = filter === '' ||
+                        v.key.toLowerCase().includes(filter.toLowerCase()) ||
+                        (v.description || '').toLowerCase().includes(filter.toLowerCase());
+                    const matchesPlatform = platform === '' ||
+                        !v.platforms ||
+                        v.platforms.includes(platform);
+                    return matchesSearch && matchesPlatform;
+                });
+                return { ...cat, variables: filteredVars };
+            }).filter(cat => cat.variables.length > 0);
+
+            if (filteredCategories.length === 0) {
+                container.innerHTML = `
+                    <div class="no-results">
+                        <p>🔍 No matching environment variables found</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filteredCategories.map(cat => `
+                <div class="env-category" data-cat="${cat.name}">
+                    <div class="env-category-header">
+                        <div class="env-category-title">
+                            <h3>${cat.name}</h3>
+                            <span class="count">${cat.variables.length}</span>
+                        </div>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="env-variables-list">
+                        ${cat.variables.map(v => `
+                            <div class="env-var-item">
+                                <span class="env-var-key">${v.key}</span>
+                                <span class="env-var-desc">${v.description || '-'}</span>
+                                <div class="env-var-platforms">
+                                    ${(v.platforms || []).map(p => `
+                                        <span class="platform-badge ${p}">${p}</span>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+
+            // Add click handlers for expanding
+            document.querySelectorAll('.env-category-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    header.parentElement.classList.toggle('expanded');
+                });
+            });
+        }
+
+        // Render evaluation
+        function renderEvaluation() {
+            const templates = profileData?.templates || [];
+            const envCategories = envData?.categories || [];
+
+            // Calculate metrics
+            const totalTemplates = templates.length;
+            const totalEnvVars = envCategories.reduce((sum, c) => sum + (c.variables?.length || 0), 0);
+            const totalTemplateVars = templates.reduce((sum, t) => sum + (t.variables?.length || 0), 0);
+
+            // Templates with descriptions
+            const templatesWithDesc = templates.filter(t => t.description && t.description.length > 10).length;
+            const descCoverage = totalTemplates > 0 ? Math.round((templatesWithDesc / totalTemplates) * 100) : 0;
+
+            // Templates with tags
+            const templatesWithTags = templates.filter(t => t.tags && t.tags.length > 0).length;
+            const tagsCoverage = totalTemplates > 0 ? Math.round((templatesWithTags / totalTemplates) * 100) : 0;
+
+            // Variables with values
+            const varsWithValues = templates.reduce((sum, t) => {
+                return sum + (t.variables || []).filter(v => v.value !== undefined).length;
+            }, 0);
+            const valuesCoverage = totalTemplateVars > 0 ? Math.round((varsWithValues / totalTemplateVars) * 100) : 0;
+
+            // Env vars with descriptions
+            const envVarsWithDesc = envCategories.reduce((sum, c) => {
+                return sum + (c.variables || []).filter(v => v.description && v.description.length > 5).length;
+            }, 0);
+            const envDescCoverage = totalEnvVars > 0 ? Math.round((envVarsWithDesc / totalEnvVars) * 100) : 0;
+
+            // Unique categories
+            const uniqueCategories = [...new Set(templates.map(t => t.category))];
+
+            // Secret variables count
+            const secretVarsCount = templates.reduce((sum, t) => {
+                return sum + (t.variables || []).filter(v => v.type === 'secretRef').length;
+            }, 0);
+
+            const evalGrid = document.getElementById('evalGrid');
+            evalGrid.innerHTML = `
+                <div class="eval-item success">
+                    <div class="eval-label">Total Templates</div>
+                    <div class="eval-value">${totalTemplates}</div>
+                </div>
+                <div class="eval-item info">
+                    <div class="eval-label">Env Dictionary Entries</div>
+                    <div class="eval-value">${totalEnvVars}</div>
+                </div>
+                <div class="eval-item ${descCoverage >= 80 ? 'success' : descCoverage >= 50 ? 'warning' : 'info'}">
+                    <div class="eval-label">Description Coverage</div>
+                    <div class="eval-value">${descCoverage}%</div>
+                </div>
+                <div class="eval-item ${tagsCoverage >= 80 ? 'success' : tagsCoverage >= 50 ? 'warning' : 'info'}">
+                    <div class="eval-label">Tags Coverage</div>
+                    <div class="eval-value">${tagsCoverage}%</div>
+                </div>
+                <div class="eval-item info">
+                    <div class="eval-label">Template Categories</div>
+                    <div class="eval-value">${uniqueCategories.length}</div>
+                </div>
+                <div class="eval-item warning">
+                    <div class="eval-label">Secret Variables</div>
+                    <div class="eval-value">${secretVarsCount}</div>
+                </div>
+                <div class="eval-item ${valuesCoverage >= 50 ? 'success' : 'info'}">
+                    <div class="eval-label">Default Value Coverage</div>
+                    <div class="eval-value">${valuesCoverage}%</div>
+                </div>
+                <div class="eval-item ${envDescCoverage >= 80 ? 'success' : envDescCoverage >= 50 ? 'warning' : 'info'}">
+                    <div class="eval-label">Dictionary Description Coverage</div>
+                    <div class="eval-value">${envDescCoverage}%</div>
+                </div>
+            `;
+
+            // Generate suggestions
+            const suggestions = [];
+
+            if (descCoverage < 100) {
+                suggestions.push({
+                    type: 'info',
+                    text: `${totalTemplates - templatesWithDesc} templates lack detailed descriptions. Consider adding them to improve readability.`
+                });
+            }
+
+            if (tagsCoverage < 100) {
+                suggestions.push({
+                    type: 'info',
+                    text: `${totalTemplates - templatesWithTags} templates have no tags. Adding tags can improve search experience.`
+                });
+            }
+
+            if (valuesCoverage < 50) {
+                suggestions.push({
+                    type: 'warning',
+                    text: `Only ${valuesCoverage}% of template variables have default values. Consider adding reasonable defaults for common configurations.`
+                });
+            }
+
+            if (secretVarsCount > 0) {
+                suggestions.push({
+                    type: 'success',
+                    text: `✓ Correctly identified ${secretVarsCount} sensitive variables as secretRef type, which helps with security management.`
+                });
+            }
+
+            if (envDescCoverage >= 90) {
+                suggestions.push({
+                    type: 'success',
+                    text: `✓ Environment variable dictionary description coverage is ${envDescCoverage}%. Documentation quality is good.`
+                });
+            }
+
+            // Check for duplicate variables across templates
+            const allVarKeys = templates.flatMap(t => (t.variables || []).map(v => v.key));
+            const duplicates = allVarKeys.filter((key, index) => allVarKeys.indexOf(key) !== index);
+            const uniqueDuplicates = [...new Set(duplicates)];
+
+            if (uniqueDuplicates.length > 0) {
+                suggestions.push({
+                    type: 'info',
+                    text: `Found ${uniqueDuplicates.length} variables appearing in multiple templates. This may indicate a need to create shared base templates.`
+                });
+            }
+
+            // Overall assessment
+            const overallScore = Math.round((descCoverage + tagsCoverage + envDescCoverage) / 3);
+            suggestions.unshift({
+                type: overallScore >= 80 ? 'success' : overallScore >= 50 ? 'warning' : 'info',
+                text: `📊 Overall Quality Score: ${overallScore}/100 - ${overallScore >= 80 ? 'Excellent' : overallScore >= 60 ? 'Good' : overallScore >= 40 ? 'Average' : 'Needs Improvement'}`
+            });
+
+            const suggestionsContainer = document.getElementById('suggestions');
+            suggestionsContainer.innerHTML = suggestions.map(s => `
+                <div class="eval-item ${s.type}" style="margin-bottom: 0.75rem; border-radius: 8px;">
+                    <p style="margin: 0; line-height: 1.5;">${s.text}</p>
+                </div>
+            `).join('');
+        }
+
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update buttons
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Update content
+                const tab = btn.dataset.tab;
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                document.getElementById(`${tab}-tab`).classList.add('active');
+            });
+        });
+
+        // Search handlers
+        document.getElementById('templateSearch').addEventListener('input', (e) => {
+            const category = document.getElementById('categoryFilter').value;
+            renderTemplates(e.target.value, category);
+        });
+
+        document.getElementById('categoryFilter').addEventListener('change', (e) => {
+            const search = document.getElementById('templateSearch').value;
+            renderTemplates(search, e.target.value);
+        });
+
+        document.getElementById('envSearch').addEventListener('input', (e) => {
+            const platform = document.getElementById('platformFilter').value;
+            renderEnvCategories(e.target.value, platform);
+        });
+
+        document.getElementById('platformFilter').addEventListener('change', (e) => {
+            const search = document.getElementById('envSearch').value;
+            renderEnvCategories(search, e.target.value);
+        });
+
+        // Initialize
+        loadData();
+    </script>
+</body>
+
+</html>
